@@ -16,6 +16,12 @@
 		B59CF8E51C4D254000E09221 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59CF8E31C4D254000E09221 /* LaunchScreen.storyboard */; };
 		B59CF8F01C4D254000E09221 /* ActionCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8EF1C4D254000E09221 /* ActionCameraTests.m */; };
 		B59CF8FB1C4D254000E09221 /* ActionCameraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8FA1C4D254000E09221 /* ActionCameraUITests.m */; };
+		B59CF9171C4D271A00E09221 /* README.markdown in Sources */ = {isa = PBXBuildFile; fileRef = B59CF90A1C4D271A00E09221 /* README.markdown */; };
+		B59CF9181C4D271A00E09221 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF90F1C4D271A00E09221 /* GCDAsyncSocket.m */; };
+		B59CF9191C4D271A00E09221 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9111C4D271A00E09221 /* GCDAsyncUdpSocket.m */; };
+		B59CF91A1C4D271A00E09221 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9141C4D271A00E09221 /* AsyncSocket.m */; };
+		B59CF91B1C4D271A00E09221 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9161C4D271A00E09221 /* AsyncUdpSocket.m */; };
+		B59CF91E1C4D277300E09221 /* ACSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF91D1C4D277300E09221 /* ACSocketService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,18 @@
 		B59CF8F61C4D254000E09221 /* ActionCameraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActionCameraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59CF8FA1C4D254000E09221 /* ActionCameraUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionCameraUITests.m; sourceTree = "<group>"; };
 		B59CF8FC1C4D254000E09221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B59CF90A1C4D271A00E09221 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		B59CF90C1C4D271A00E09221 /* CocoaAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaAsyncSocket.h; sourceTree = "<group>"; };
+		B59CF90E1C4D271A00E09221 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		B59CF90F1C4D271A00E09221 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		B59CF9101C4D271A00E09221 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		B59CF9111C4D271A00E09221 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		B59CF9131C4D271A00E09221 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		B59CF9141C4D271A00E09221 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		B59CF9151C4D271A00E09221 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		B59CF9161C4D271A00E09221 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		B59CF91C1C4D277300E09221 /* ACSocketService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSocketService.h; sourceTree = "<group>"; };
+		B59CF91D1C4D277300E09221 /* ACSocketService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSocketService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +125,14 @@
 				B59CF8D61C4D254000E09221 /* AppDelegate.m */,
 				B59CF8D81C4D254000E09221 /* ViewController.h */,
 				B59CF8D91C4D254000E09221 /* ViewController.m */,
+				B59CF91C1C4D277300E09221 /* ACSocketService.h */,
+				B59CF91D1C4D277300E09221 /* ACSocketService.m */,
 				B59CF8DB1C4D254000E09221 /* Main.storyboard */,
 				B59CF8E11C4D254000E09221 /* Assets.xcassets */,
 				B59CF8E31C4D254000E09221 /* LaunchScreen.storyboard */,
 				B59CF8E61C4D254000E09221 /* Info.plist */,
 				B59CF8DE1C4D254000E09221 /* ActionCamera.xcdatamodeld */,
+				B59CF9081C4D271A00E09221 /* Libs */,
 				B59CF8D21C4D254000E09221 /* Supporting Files */,
 			);
 			path = ActionCamera;
@@ -141,6 +162,55 @@
 				B59CF8FC1C4D254000E09221 /* Info.plist */,
 			);
 			path = ActionCameraUITests;
+			sourceTree = "<group>";
+		};
+		B59CF9081C4D271A00E09221 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				B59CF9091C4D271A00E09221 /* CocoaAsyncSocket */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		B59CF9091C4D271A00E09221 /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				B59CF90A1C4D271A00E09221 /* README.markdown */,
+				B59CF90B1C4D271A00E09221 /* Source */,
+			);
+			path = CocoaAsyncSocket;
+			sourceTree = "<group>";
+		};
+		B59CF90B1C4D271A00E09221 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B59CF90C1C4D271A00E09221 /* CocoaAsyncSocket.h */,
+				B59CF90D1C4D271A00E09221 /* GCD */,
+				B59CF9121C4D271A00E09221 /* RunLoop */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		B59CF90D1C4D271A00E09221 /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				B59CF90E1C4D271A00E09221 /* GCDAsyncSocket.h */,
+				B59CF90F1C4D271A00E09221 /* GCDAsyncSocket.m */,
+				B59CF9101C4D271A00E09221 /* GCDAsyncUdpSocket.h */,
+				B59CF9111C4D271A00E09221 /* GCDAsyncUdpSocket.m */,
+			);
+			path = GCD;
+			sourceTree = "<group>";
+		};
+		B59CF9121C4D271A00E09221 /* RunLoop */ = {
+			isa = PBXGroup;
+			children = (
+				B59CF9131C4D271A00E09221 /* AsyncSocket.h */,
+				B59CF9141C4D271A00E09221 /* AsyncSocket.m */,
+				B59CF9151C4D271A00E09221 /* AsyncUdpSocket.h */,
+				B59CF9161C4D271A00E09221 /* AsyncUdpSocket.m */,
+			);
+			path = RunLoop;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,10 +343,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59CF91E1C4D277300E09221 /* ACSocketService.m in Sources */,
+				B59CF9181C4D271A00E09221 /* GCDAsyncSocket.m in Sources */,
 				B59CF8E01C4D254000E09221 /* ActionCamera.xcdatamodeld in Sources */,
+				B59CF9171C4D271A00E09221 /* README.markdown in Sources */,
+				B59CF91B1C4D271A00E09221 /* AsyncUdpSocket.m in Sources */,
 				B59CF8DA1C4D254000E09221 /* ViewController.m in Sources */,
+				B59CF9191C4D271A00E09221 /* GCDAsyncUdpSocket.m in Sources */,
 				B59CF8D71C4D254000E09221 /* AppDelegate.m in Sources */,
 				B59CF8D41C4D254000E09221 /* main.m in Sources */,
+				B59CF91A1C4D271A00E09221 /* AsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
