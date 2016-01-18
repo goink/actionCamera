@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B59CF8D41C4D254000E09221 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8D31C4D254000E09221 /* main.m */; };
+		B59CF8D71C4D254000E09221 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8D61C4D254000E09221 /* AppDelegate.m */; };
+		B59CF8DA1C4D254000E09221 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8D91C4D254000E09221 /* ViewController.m */; };
+		B59CF8DD1C4D254000E09221 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59CF8DB1C4D254000E09221 /* Main.storyboard */; };
+		B59CF8E01C4D254000E09221 /* ActionCamera.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8DE1C4D254000E09221 /* ActionCamera.xcdatamodeld */; };
+		B59CF8E21C4D254000E09221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59CF8E11C4D254000E09221 /* Assets.xcassets */; };
+		B59CF8E51C4D254000E09221 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59CF8E31C4D254000E09221 /* LaunchScreen.storyboard */; };
+		B59CF8F01C4D254000E09221 /* ActionCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8EF1C4D254000E09221 /* ActionCameraTests.m */; };
+		B59CF8FB1C4D254000E09221 /* ActionCameraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8FA1C4D254000E09221 /* ActionCameraUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B59CF8EC1C4D254000E09221 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B59CF8C71C4D254000E09221 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B59CF8CE1C4D254000E09221;
+			remoteInfo = ActionCamera;
+		};
+		B59CF8F71C4D254000E09221 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B59CF8C71C4D254000E09221 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B59CF8CE1C4D254000E09221;
+			remoteInfo = ActionCamera;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B59CF8CF1C4D254000E09221 /* ActionCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActionCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B59CF8D31C4D254000E09221 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B59CF8D51C4D254000E09221 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B59CF8D61C4D254000E09221 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B59CF8D81C4D254000E09221 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B59CF8D91C4D254000E09221 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B59CF8DC1C4D254000E09221 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B59CF8DF1C4D254000E09221 /* ActionCamera.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ActionCamera.xcdatamodel; sourceTree = "<group>"; };
+		B59CF8E11C4D254000E09221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B59CF8E41C4D254000E09221 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B59CF8E61C4D254000E09221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B59CF8EB1C4D254000E09221 /* ActionCameraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActionCameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B59CF8EF1C4D254000E09221 /* ActionCameraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionCameraTests.m; sourceTree = "<group>"; };
+		B59CF8F11C4D254000E09221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B59CF8F61C4D254000E09221 /* ActionCameraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActionCameraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B59CF8FA1C4D254000E09221 /* ActionCameraUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionCameraUITests.m; sourceTree = "<group>"; };
+		B59CF8FC1C4D254000E09221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B59CF8CC1C4D254000E09221 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B59CF8E81C4D254000E09221 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B59CF8F31C4D254000E09221 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B59CF8C61C4D254000E09221 = {
+			isa = PBXGroup;
+			children = (
+				B59CF8D11C4D254000E09221 /* ActionCamera */,
+				B59CF8EE1C4D254000E09221 /* ActionCameraTests */,
+				B59CF8F91C4D254000E09221 /* ActionCameraUITests */,
+				B59CF8D01C4D254000E09221 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B59CF8D01C4D254000E09221 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B59CF8CF1C4D254000E09221 /* ActionCamera.app */,
+				B59CF8EB1C4D254000E09221 /* ActionCameraTests.xctest */,
+				B59CF8F61C4D254000E09221 /* ActionCameraUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B59CF8D11C4D254000E09221 /* ActionCamera */ = {
+			isa = PBXGroup;
+			children = (
+				B59CF8D51C4D254000E09221 /* AppDelegate.h */,
+				B59CF8D61C4D254000E09221 /* AppDelegate.m */,
+				B59CF8D81C4D254000E09221 /* ViewController.h */,
+				B59CF8D91C4D254000E09221 /* ViewController.m */,
+				B59CF8DB1C4D254000E09221 /* Main.storyboard */,
+				B59CF8E11C4D254000E09221 /* Assets.xcassets */,
+				B59CF8E31C4D254000E09221 /* LaunchScreen.storyboard */,
+				B59CF8E61C4D254000E09221 /* Info.plist */,
+				B59CF8DE1C4D254000E09221 /* ActionCamera.xcdatamodeld */,
+				B59CF8D21C4D254000E09221 /* Supporting Files */,
+			);
+			path = ActionCamera;
+			sourceTree = "<group>";
+		};
+		B59CF8D21C4D254000E09221 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B59CF8D31C4D254000E09221 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B59CF8EE1C4D254000E09221 /* ActionCameraTests */ = {
+			isa = PBXGroup;
+			children = (
+				B59CF8EF1C4D254000E09221 /* ActionCameraTests.m */,
+				B59CF8F11C4D254000E09221 /* Info.plist */,
+			);
+			path = ActionCameraTests;
+			sourceTree = "<group>";
+		};
+		B59CF8F91C4D254000E09221 /* ActionCameraUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B59CF8FA1C4D254000E09221 /* ActionCameraUITests.m */,
+				B59CF8FC1C4D254000E09221 /* Info.plist */,
+			);
+			path = ActionCameraUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B59CF8CE1C4D254000E09221 /* ActionCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B59CF8FF1C4D254000E09221 /* Build configuration list for PBXNativeTarget "ActionCamera" */;
+			buildPhases = (
+				B59CF8CB1C4D254000E09221 /* Sources */,
+				B59CF8CC1C4D254000E09221 /* Frameworks */,
+				B59CF8CD1C4D254000E09221 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ActionCamera;
+			productName = ActionCamera;
+			productReference = B59CF8CF1C4D254000E09221 /* ActionCamera.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B59CF8EA1C4D254000E09221 /* ActionCameraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B59CF9021C4D254000E09221 /* Build configuration list for PBXNativeTarget "ActionCameraTests" */;
+			buildPhases = (
+				B59CF8E71C4D254000E09221 /* Sources */,
+				B59CF8E81C4D254000E09221 /* Frameworks */,
+				B59CF8E91C4D254000E09221 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B59CF8ED1C4D254000E09221 /* PBXTargetDependency */,
+			);
+			name = ActionCameraTests;
+			productName = ActionCameraTests;
+			productReference = B59CF8EB1C4D254000E09221 /* ActionCameraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B59CF8F51C4D254000E09221 /* ActionCameraUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B59CF9051C4D254000E09221 /* Build configuration list for PBXNativeTarget "ActionCameraUITests" */;
+			buildPhases = (
+				B59CF8F21C4D254000E09221 /* Sources */,
+				B59CF8F31C4D254000E09221 /* Frameworks */,
+				B59CF8F41C4D254000E09221 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B59CF8F81C4D254000E09221 /* PBXTargetDependency */,
+			);
+			name = ActionCameraUITests;
+			productName = ActionCameraUITests;
+			productReference = B59CF8F61C4D254000E09221 /* ActionCameraUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B59CF8C71C4D254000E09221 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = AC;
+				TargetAttributes = {
+					B59CF8CE1C4D254000E09221 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					B59CF8EA1C4D254000E09221 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = B59CF8CE1C4D254000E09221;
+					};
+					B59CF8F51C4D254000E09221 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = B59CF8CE1C4D254000E09221;
+					};
+				};
+			};
+			buildConfigurationList = B59CF8CA1C4D254000E09221 /* Build configuration list for PBXProject "ActionCamera" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B59CF8C61C4D254000E09221;
+			productRefGroup = B59CF8D01C4D254000E09221 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B59CF8CE1C4D254000E09221 /* ActionCamera */,
+				B59CF8EA1C4D254000E09221 /* ActionCameraTests */,
+				B59CF8F51C4D254000E09221 /* ActionCameraUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B59CF8CD1C4D254000E09221 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B59CF8E51C4D254000E09221 /* LaunchScreen.storyboard in Resources */,
+				B59CF8E21C4D254000E09221 /* Assets.xcassets in Resources */,
+				B59CF8DD1C4D254000E09221 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B59CF8E91C4D254000E09221 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B59CF8F41C4D254000E09221 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B59CF8CB1C4D254000E09221 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B59CF8E01C4D254000E09221 /* ActionCamera.xcdatamodeld in Sources */,
+				B59CF8DA1C4D254000E09221 /* ViewController.m in Sources */,
+				B59CF8D71C4D254000E09221 /* AppDelegate.m in Sources */,
+				B59CF8D41C4D254000E09221 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B59CF8E71C4D254000E09221 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B59CF8F01C4D254000E09221 /* ActionCameraTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B59CF8F21C4D254000E09221 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B59CF8FB1C4D254000E09221 /* ActionCameraUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B59CF8ED1C4D254000E09221 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B59CF8CE1C4D254000E09221 /* ActionCamera */;
+			targetProxy = B59CF8EC1C4D254000E09221 /* PBXContainerItemProxy */;
+		};
+		B59CF8F81C4D254000E09221 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B59CF8CE1C4D254000E09221 /* ActionCamera */;
+			targetProxy = B59CF8F71C4D254000E09221 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B59CF8DB1C4D254000E09221 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B59CF8DC1C4D254000E09221 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B59CF8E31C4D254000E09221 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B59CF8E41C4D254000E09221 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B59CF8FD1C4D254000E09221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B59CF8FE1C4D254000E09221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B59CF9001C4D254000E09221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ActionCamera/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ActionCamera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B59CF9011C4D254000E09221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ActionCamera/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ActionCamera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B59CF9031C4D254000E09221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ActionCameraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ActionCameraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ActionCamera.app/ActionCamera";
+			};
+			name = Debug;
+		};
+		B59CF9041C4D254000E09221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ActionCameraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ActionCameraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ActionCamera.app/ActionCamera";
+			};
+			name = Release;
+		};
+		B59CF9061C4D254000E09221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ActionCameraUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ActionCameraUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ActionCamera;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		B59CF9071C4D254000E09221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ActionCameraUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ActionCameraUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ActionCamera;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B59CF8CA1C4D254000E09221 /* Build configuration list for PBXProject "ActionCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B59CF8FD1C4D254000E09221 /* Debug */,
+				B59CF8FE1C4D254000E09221 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B59CF8FF1C4D254000E09221 /* Build configuration list for PBXNativeTarget "ActionCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B59CF9001C4D254000E09221 /* Debug */,
+				B59CF9011C4D254000E09221 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B59CF9021C4D254000E09221 /* Build configuration list for PBXNativeTarget "ActionCameraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B59CF9031C4D254000E09221 /* Debug */,
+				B59CF9041C4D254000E09221 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B59CF9051C4D254000E09221 /* Build configuration list for PBXNativeTarget "ActionCameraUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B59CF9061C4D254000E09221 /* Debug */,
+				B59CF9071C4D254000E09221 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B59CF8DE1C4D254000E09221 /* ActionCamera.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B59CF8DF1C4D254000E09221 /* ActionCamera.xcdatamodel */,
+			);
+			currentVersion = B59CF8DF1C4D254000E09221 /* ActionCamera.xcdatamodel */;
+			path = ActionCamera.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B59CF8C71C4D254000E09221 /* Project object */;
+}
