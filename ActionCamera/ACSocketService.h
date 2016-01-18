@@ -9,8 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "AsyncSocket.h"
 
-@interface ACSocketService : NSObject
+@protocol AsyncSocketDelegate;
+
+@interface ACSocketService : NSObject <AsyncSocketDelegate>
+
 @property (nonatomic, strong) AsyncSocket *cmdSocket;
 @property (nonatomic, strong) AsyncSocket *datSocket;
+
++ (ACSocketService *)sharedSocketService;
+
+- (void)startCommandSocketSession;
+- (void)stopCommandSocketSession;
 
 @end
