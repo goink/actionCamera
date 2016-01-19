@@ -180,6 +180,23 @@ static ACSocketService *socketService = nil;
     [self enQueue:obj];
 }
 #pragma mark - delegate
+- (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
+{
+    if (sock == self.cmdSocket)
+    {
+        //这是异步返回的连接成功，
+        NSLog(@"didConnectToHost  8787");
+
+    }
+    else
+    {
+        NSLog(@"didConnectToHost  7878");
+
+        [sock readDataWithTimeout:-1 tag:0];
+        
+    }
+    
+}
 - (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
 //    if (sock == _cmdSocket)
