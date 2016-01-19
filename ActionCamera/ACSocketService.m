@@ -64,9 +64,6 @@ static ACSocketService *socketService = nil;
 {
     self = [super init];
     if (self) {
-//        if (!self.queue) {
-//
-//        }
         [NSThread detachNewThreadSelector:@selector(commandLoop) toTarget:self withObject:nil];
         
     }
@@ -129,7 +126,7 @@ static ACSocketService *socketService = nil;
                 [self.cmdSocket writeData:cmdData withTimeout:-1 tag:0];
                 
                 _socketObject.status = STATUS_LOADING;
-                NSLog(@"【sendMsg】:%@", _socketObject.cmd);
+                NSLog(@"[sendMsg]:%@", _socketObject.cmd);
 
             });
         }
@@ -173,6 +170,14 @@ static ACSocketService *socketService = nil;
 {
     [_datSocket disconnect];
     _datSocket.userData = SocketOfflineByUser;
+}
+- (void)sendCommandToSocket:(NSString *)cmd
+{
+    if (!cmd) {
+        return;
+    }
+    ACSocketObject *obj = [[ACSocketObject alloc] initWithCommand:cmd];
+    [self enQueue:obj];
 }
 #pragma mark - delegate
 - (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag

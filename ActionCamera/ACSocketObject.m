@@ -25,4 +25,12 @@
     return self;
 }
 
+- (id)initWithCommand:(NSString *)cmd
+{
+    if (self = [super init]) {
+        self.cmd = cmd;
+    }
+    return self;
+}
+
 @end

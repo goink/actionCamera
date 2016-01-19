@@ -20,5 +20,5 @@
 
 - (void)startCommandSocketSession;
 - (void)stopCommandSocketSession;
-
+- (void)sendCommandToSocket:(NSString *)cmd;
 @end

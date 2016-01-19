@@ -20,5 +20,5 @@
 @property(nonatomic,strong) NSString  *status;
 
 - (id)initWithLoadingData:(NSDictionary *)dic;
-
+- (id)initWithCommand:(NSString *)cmd;
 @end

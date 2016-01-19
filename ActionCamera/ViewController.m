@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ACSocketService.h"
+#import "ACCommandService.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) ACSocketService *socketService;
@@ -44,6 +45,9 @@
 - (void)buttonClick1
 {
         NSLog(@"button click1: %@", [_socketService.cmdSocket isConnected]?@"yes":@"no");
+    if ([_socketService.cmdSocket isConnected]) {
+        [ACCommandService startSession];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

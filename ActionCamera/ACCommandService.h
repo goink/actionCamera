@@ -10,4 +10,8 @@
 
 @interface ACCommandService : NSObject
 
++ (void)startCommandSocketSession;
++ (void)stopCommandSocketSession;
++ (void)startSession;
+
 @end

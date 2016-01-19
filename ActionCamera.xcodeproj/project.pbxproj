@@ -133,6 +133,10 @@
 				B59CF8D91C4D254000E09221 /* ViewController.m */,
 				B59CF91C1C4D277300E09221 /* ACSocketService.h */,
 				B59CF91D1C4D277300E09221 /* ACSocketService.m */,
+				B59CF91F1C4D344000E09221 /* ACSocketObject.h */,
+				B59CF9201C4D344000E09221 /* ACSocketObject.m */,
+				B59CF9221C4D3D1400E09221 /* ACCommandService.h */,
+				B59CF9231C4D3D1400E09221 /* ACCommandService.m */,
 				B59CF8DB1C4D254000E09221 /* Main.storyboard */,
 				B59CF8E11C4D254000E09221 /* Assets.xcassets */,
 				B59CF8E31C4D254000E09221 /* LaunchScreen.storyboard */,
@@ -140,10 +144,6 @@
 				B59CF8DE1C4D254000E09221 /* ActionCamera.xcdatamodeld */,
 				B59CF9081C4D271A00E09221 /* Libs */,
 				B59CF8D21C4D254000E09221 /* Supporting Files */,
-				B59CF91F1C4D344000E09221 /* ACSocketObject.h */,
-				B59CF9201C4D344000E09221 /* ACSocketObject.m */,
-				B59CF9221C4D3D1400E09221 /* ACCommandService.h */,
-				B59CF9231C4D3D1400E09221 /* ACCommandService.m */,
 			);
 			path = ActionCamera;
 			sourceTree = "<group>";
@@ -590,6 +590,7 @@
 				B59CF9011C4D254000E09221 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B59CF9021C4D254000E09221 /* Build configuration list for PBXNativeTarget "ActionCameraTests" */ = {
 			isa = XCConfigurationList;
@@ -598,6 +599,7 @@
 				B59CF9041C4D254000E09221 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B59CF9051C4D254000E09221 /* Build configuration list for PBXNativeTarget "ActionCameraUITests" */ = {
 			isa = XCConfigurationList;
@@ -606,6 +608,7 @@
 				B59CF9071C4D254000E09221 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
