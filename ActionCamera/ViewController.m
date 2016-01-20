@@ -20,7 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     UIButton *button = [[UIButton alloc] init];
-    button.frame = CGRectMake(40, 200, 100, 20);
+    button.frame = CGRectMake(40, 200, 100, 40);
+    button.backgroundColor = [UIColor grayColor];
     [button setTitle:@"OK" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
@@ -28,7 +29,8 @@
     
     
     UIButton *button1 = [[UIButton alloc] init];
-    button1.frame = CGRectMake(40, 400, 100, 20);
+    button1.frame = CGRectMake(40, 400, 100, 40);
+    button1.backgroundColor = [UIColor grayColor];
     [button1 setTitle:@"Button" forState:UIControlStateNormal];
     [button1 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [button1 addTarget:self action:@selector(buttonClick1) forControlEvents:UIControlEventTouchUpInside];
@@ -46,7 +48,8 @@
 {
         NSLog(@"button click1: %@", [_socketService.cmdSocket isConnected]?@"yes":@"no");
     if ([_socketService.cmdSocket isConnected]) {
-        [ACCommandService startSession];
+        NSLog(@"ooooooo   isConnected");
+//        [ACCommandService startSession];
     }
 }
 - (void)didReceiveMemoryWarning {

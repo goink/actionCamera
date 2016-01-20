@@ -8,23 +8,14 @@
 
 #import "ACSocketService.h"
 #import "ACSocketObject.h"
+#import "ACCommandService.h"
 
 #define STATUS_LOADING @"status_loading"
 #define STATUS_WAITING @"status_waiting"
 #define STATUS_PREPARE @"status_prepare"
 #define STATUS_CANCEL @"status_cancel"
 
-#define CAMERA_IP @"192.168.42.1"
-#define CAMERA_CMD_PORT 7878
-#define CMAERA_DAT_PORT 8787
 
-#define TIMEOUT 20
-
-enum{
-    SocketOfflineByServer,
-    SocketOfflineByUser,
-    SocketOfflineByOffline,//wifi 断开
-};
 
 @interface ACSocketService ()
 @property (nonatomic, strong) NSMutableArray *queue;
@@ -185,25 +176,36 @@ static ACSocketService *socketService = nil;
     if (sock == self.cmdSocket)
     {
         //这是异步返回的连接成功，
-        NSLog(@"didConnectToHost  8787");
-
+        NSLog(@"didConnectToHost  7878");
+        [ACCommandService startSession];
+        [sock readDataWithTimeout:-1 tag:0];
     }
     else
     {
-        NSLog(@"didConnectToHost  7878");
-
-        [sock readDataWithTimeout:-1 tag:0];
+        NSLog(@"didConnectToHost  8787");
         
     }
-    
 }
+
 - (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-//    if (sock == _cmdSocket)
+    if (sock == _cmdSocket)
     {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
         NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"---%@", str);
+        NSLog(@"---%@---%@", dic, dic[@"param"]);
+        if (self.socketObject.msg_id == 257) {
+            [ACSocketService sharedSocketService].tokenNumber = [dic[@"param"] intValue];
+//            NSString *model = [dic objectForKey:MODEL];
+//            NSLog(@"model----:%@", model);
+//            [LGUserDefaultsUtils saveValue:model forKey:MODEL];
+        }
     }
-    
+    self._continue = YES;
 }
+- (void)onSocket:(AsyncSocket *)sock didAcceptNewSocket:(AsyncSocket *)newSocket
+{
+    NSLog(@"didAcceptNewSocket");
+}
+
 @end

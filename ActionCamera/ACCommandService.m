@@ -8,11 +8,15 @@
 
 #import "ACCommandService.h"
 #import "ACSocketService.h"
+#import "AsyncSocket.h"
 
 @implementation ACCommandService
 
 + (void)startCommandSocketSession
 {
+    [ACSocketService sharedSocketService].cmdSocket.userData = SocketOfflineByUser;
+    [[ACSocketService sharedSocketService].cmdSocket disconnect];
+    [ACSocketService sharedSocketService].cmdSocket.userData = SocketOfflineByServer;
     [[ACSocketService sharedSocketService] startCommandSocketSession];
 }
 
@@ -23,7 +27,7 @@
 
 + (void)startSession
 {
-    NSString *cmd  = [NSString stringWithFormat:@"%@", @"{\"token\":0,\"msg_id\":257}"];//@"{\"token\":0,\"msg_id\":257}";
+    NSString *cmd  = @"{\"token\":0,\"msg_id\":257}";//[NSString stringWithFormat:@"%@", @"{\"token\":0,\"msg_id\":257}"];//
     [[ACSocketService sharedSocketService] sendCommandToSocket:cmd];
 }
 @end
