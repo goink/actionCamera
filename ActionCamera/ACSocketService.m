@@ -2,20 +2,13 @@
 //  ACSocketService.m
 //  ActionCamera
 //
-//  Created by 范桂盛 on 16/1/18.
+//  Created by Guisheng on 16/1/18.
 //  Copyright © 2016年 AC. All rights reserved.
 //
 
 #import "ACSocketService.h"
 #import "ACSocketObject.h"
 #import "ACCommandService.h"
-
-#define STATUS_LOADING @"status_loading"
-#define STATUS_WAITING @"status_waiting"
-#define STATUS_PREPARE @"status_prepare"
-#define STATUS_CANCEL @"status_cancel"
-
-
 
 @interface ACSocketService ()
 @property (nonatomic, strong) NSMutableArray *queue;
@@ -28,7 +21,7 @@
 @implementation ACSocketService
 static ACSocketService *socketService = nil;
 
-#pragma mark - 单例
+#pragma mark - life cycle
 + (ACSocketService *)sharedSocketService {
     @synchronized(self) {
         if(!socketService) {
@@ -64,7 +57,7 @@ static ACSocketService *socketService = nil;
 {
     return self;
 }
-#pragma mark - 命令队列操作
+#pragma mark - command queue operation
 - (NSMutableArray *)queue
 {
     if (!_queue) {
@@ -98,7 +91,7 @@ static ACSocketService *socketService = nil;
         [_queue removeAllObjects];
     }
 }
-#pragma mark - Socket操作
+#pragma mark - socket operation
 - (void)commandLoop
 {
     while (YES)
@@ -124,7 +117,6 @@ static ACSocketService *socketService = nil;
         else
         {
             [NSThread sleepForTimeInterval:0.4];
-//            NSLog(@"+++");
         }
     }
 }
@@ -162,6 +154,7 @@ static ACSocketService *socketService = nil;
     [_datSocket disconnect];
     _datSocket.userData = SocketOfflineByUser;
 }
+
 - (void)sendCommandToSocket:(NSString *)cmd
 {
     if (!cmd) {
@@ -170,12 +163,12 @@ static ACSocketService *socketService = nil;
     ACSocketObject *obj = [[ACSocketObject alloc] initWithCommand:cmd];
     [self enQueue:obj];
 }
+
 #pragma mark - delegate
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
 {
     if (sock == self.cmdSocket)
     {
-        //这是异步返回的连接成功，
         NSLog(@"didConnectToHost  7878");
         [ACCommandService startSession];
         [sock readDataWithTimeout:-1 tag:0];
@@ -191,21 +184,33 @@ static ACSocketService *socketService = nil;
 {
     if (sock == _cmdSocket)
     {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"---%@---%@", dic, dic[@"param"]);
-        if (self.socketObject.msg_id == 257) {
-            [ACSocketService sharedSocketService].tokenNumber = [dic[@"param"] intValue];
-//            NSString *model = [dic objectForKey:MODEL];
-//            NSLog(@"model----:%@", model);
-//            [LGUserDefaultsUtils saveValue:model forKey:MODEL];
-        }
+        [self handleCommandSocket:sock data:data tag:tag];
+    }
+    else if (sock == _datSocket)
+    {
+        [self handleDataSocket:sock data:data tag:tag];
     }
     self._continue = YES;
 }
+
 - (void)onSocket:(AsyncSocket *)sock didAcceptNewSocket:(AsyncSocket *)newSocket
 {
     NSLog(@"didAcceptNewSocket");
 }
 
+#pragma mark - handle
+- (void)handleCommandSocket:(AsyncSocket *)sock data:(NSData *)data tag:(long)tag
+{
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    
+    NSLog(@"---%@---%@", dic, dic[@"param"]);
+    if (self.socketObject.msg_id == 257) {
+        [ACSocketService sharedSocketService].tokenNumber = [dic[@"param"] intValue];
+    }
+}
+
+- (void)handleDataSocket:(AsyncSocket *)sock data:(NSData *)data tag:(long)tag
+{
+    
+}
 @end

@@ -2,23 +2,18 @@
 //  ACSocketService.h
 //  ActionCamera
 //
-//  Created by 范桂盛 on 16/1/18.
+//  Created by Guisheng on 16/1/18.
 //  Copyright © 2016年 AC. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "AsyncSocket.h"
-
-#define CAMERA_IP @"192.168.42.1"
-#define CAMERA_CMD_PORT 7878
-#define CMAERA_DAT_PORT 8787
-
-#define TIMEOUT 20
+#import "ACDefines.h"
 
 enum{
     SocketOfflineByServer,
     SocketOfflineByUser,
-    SocketOfflineByOffline,//wifi 断开
+    SocketOfflineByOffline,
 };
 
 @protocol AsyncSocketDelegate;
