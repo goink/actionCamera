@@ -7,6 +7,11 @@
 //
 
 #import "ACSettingOptions.h"
+#import <objc/runtime.h>
+
+@interface ACSettingOptions ()
+@property (strong, nonatomic) NSMutableDictionary *properties;
+@end
 
 @implementation ACSettingOptions
 - (instancetype)init
@@ -67,4 +72,43 @@
     return self;
 }
 
+- (void)setValue:(NSString *)name withOptions:(NSArray *)options
+{
+    if (!name || !options) return;
+    
+    if ([self containsOf:name]) {
+        [self setValue:options forKey:name];
+    }
+}
+- (BOOL)containsOf:(NSString *)key
+{
+    if (!key) return NO;
+    
+    if (self.properties) {
+        if (_properties[key]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (NSMutableDictionary *)properties
+{
+    if (!_properties) {
+        
+        _properties = [NSMutableDictionary dictionary];
+        
+        unsigned int count = 0;
+        Ivar *ivars = class_copyIvarList([self class], &count);
+        NSString *ivarName;
+        
+        for (int i = 0; i < count; i++) {
+            ivarName = [[NSString stringWithUTF8String:ivar_getName(ivars[i])] substringFromIndex:1];
+            if ([ivarName isEqualToString:@"properties"]) continue;
+            _properties[ivarName] = ivarName;
+        }
+        
+    }
+    return _properties;
+}
 @end

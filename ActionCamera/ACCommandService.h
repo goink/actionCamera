@@ -14,5 +14,8 @@
 + (void)stopCommandSocketSession;
 + (void)startSession;
 + (void)getAllCurrentSettings;
++ (void)getSettingOptions:(NSString *)setting;
++ (void)setSettingWithType:(NSString *)type param:(NSString *)param;
++ (void)getSettingWithType:(NSString *)type;
 
 @end

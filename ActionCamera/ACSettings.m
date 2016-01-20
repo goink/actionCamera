@@ -76,6 +76,7 @@
         
         for (int i = 0; i < count; i++) {
             ivarName = [[NSString stringWithUTF8String:ivar_getName(ivars[i])] substringFromIndex:1];
+            if ([ivarName isEqualToString:@"properties"]) continue;
             _properties[ivarName] = ivarName;
         }
         
@@ -91,6 +92,17 @@
 }
 - (NSString *)description
 {
-    
+    NSMutableString *mutString = [[NSMutableString alloc] init];
+    [mutString appendString:@"description:\n---\n"];
+    if (_properties) {
+        for (NSString *p in _properties) {
+            NSString *value = [self valueForKey:p];
+            if (value) {
+                [mutString appendString:[NSString stringWithFormat:@"    .%@ = %@\n", p, value]];
+            }
+        }
+    }
+    [mutString appendString:@"---"];
+    return mutString;
 }
 @end

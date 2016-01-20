@@ -56,4 +56,6 @@
 @property(nonatomic,strong) NSArray *video_photo_time;
 @property(nonatomic,strong) NSArray *loop_rec_duration;
 
+- (void)setValue:(NSString *)name withOptions:(NSArray *)options;
+
 @end

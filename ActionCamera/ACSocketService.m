@@ -52,6 +52,7 @@ static ACSocketService *socketService = nil;
 {
     self = [super init];
     if (self) {
+        self.settingOptions = [[ACSettingOptions alloc] init];
         [NSThread detachNewThreadSelector:@selector(commandLoop) toTarget:self withObject:nil];
         
     }
@@ -242,11 +243,26 @@ static ACSocketService *socketService = nil;
         case MSGID_GET_ALL_CURRENT_SETTINGS:
         {
             NSArray *settings = dic[@"param"];
-            NSLog(@"setting count:%ld", settings.count);
-            
             _allSettings = [[ACSettings alloc] initWithArray:settings];
             NSLog(@"all settings:%@", _allSettings);
             break;
+        }
+        case MSGID_GET_SINGLE_SETTING_OPTIONS:
+        {
+            NSString *setting = dic[@"param"];
+            NSArray *options  = dic[@"options"];
+            [self.settingOptions setValue:setting withOptions:options];
+            
+            NSLog(@"%@:%@", setting, options);
+            break;
+        }
+        case MSGID_SET_SETTING:
+        {
+            
+        }
+        case MSGID_GET_SETTING:
+        {
+            
         }
         default:
             break;

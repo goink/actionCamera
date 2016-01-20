@@ -10,6 +10,7 @@
 #import "AsyncSocket.h"
 #import "ACDefines.h"
 #import "ACSettings.h"
+#import "ACSettingOptions.h"
 
 enum{
     SocketOfflineByServer,
@@ -25,10 +26,12 @@ enum{
 @property (nonatomic, strong) AsyncSocket *datSocket;
 @property (nonatomic, assign) int         tokenNumber;
 @property (strong, nonatomic) ACSettings  *allSettings;
+@property (strong, nonatomic) ACSettingOptions *settingOptions;
 
 + (ACSocketService *)sharedSocketService;
 
 - (void)startCommandSocketSession;
 - (void)stopCommandSocketSession;
 - (void)sendCommandToSocket:(NSString *)cmd;
+
 @end
