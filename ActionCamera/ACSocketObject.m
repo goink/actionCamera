@@ -13,13 +13,9 @@
 - (id)initWithLoadingData:(NSDictionary *)dic
 {
     if (self = [super init]) {
-        self.cmd        = [dic valueForKey:@"cmd"];
-        self.name       = [dic valueForKey:@"name"];
-        self.type       = [dic valueForKey:@"type"];
         self.msg_id     = [[dic valueForKey:@"msg_id"] intValue];
-        self.path       = [dic valueForKey:@"path"];
-        self.loadedData = [dic valueForKey:@"loadedData"];
-        self.allSize    = [[dic valueForKey:@"allSize"] longValue];
+        self.cmd        = [dic valueForKey:@"cmd"];
+        self.type       = [dic valueForKey:@"type"];
         self.status     = [dic valueForKey:@"status"];
     }
     return self;

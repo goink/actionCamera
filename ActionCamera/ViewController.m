@@ -18,18 +18,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
     UIButton *button = [[UIButton alloc] init];
-    button.frame = CGRectMake(40, 200, 100, 40);
-    button.backgroundColor = [UIColor grayColor];
-    [button setTitle:@"OK" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    button.bounds = CGRectMake(0, 0, 200, 48);
+    button.center = CGPointMake(self.view.frame.size.width/2, 200);
+//    button.backgroundColor = [UIColor grayColor];
+    [button setTitle:@"Connect" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
     
     UIButton *button1 = [[UIButton alloc] init];
-    button1.frame = CGRectMake(40, 400, 100, 40);
+    button1.bounds = CGRectMake(0, 0, 200, 48);
+    button1.center = CGPointMake(self.view.frame.size.width/2, 400);
     button1.backgroundColor = [UIColor grayColor];
     [button1 setTitle:@"Button" forState:UIControlStateNormal];
     [button1 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -37,24 +40,25 @@
     [self.view addSubview:button1];
     
     self.socketService = [ACSocketService sharedSocketService];
+    
+    [_socketService startCommandSocketSession];
 }
+
 - (void)buttonClick
 {
     NSLog(@"button click");
-    [_socketService startCommandSocketSession];
+//    [_socketService startCommandSocketSession];
     
 }
+
 - (void)buttonClick1
 {
         NSLog(@"button click1: %@", [_socketService.cmdSocket isConnected]?@"yes":@"no");
     if ([_socketService.cmdSocket isConnected]) {
         NSLog(@"ooooooo   isConnected");
-//        [ACCommandService startSession];
+        [ACCommandService getAllCurrentSettings];
     }
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 @end

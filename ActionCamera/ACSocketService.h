@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AsyncSocket.h"
 #import "ACDefines.h"
+#import "ACSettings.h"
 
 enum{
     SocketOfflineByServer,
@@ -23,6 +24,7 @@ enum{
 @property (nonatomic, strong) AsyncSocket *cmdSocket;
 @property (nonatomic, strong) AsyncSocket *datSocket;
 @property (nonatomic, assign) int         tokenNumber;
+@property (strong, nonatomic) ACSettings  *allSettings;
 
 + (ACSocketService *)sharedSocketService;
 

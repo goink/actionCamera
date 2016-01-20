@@ -13,5 +13,6 @@
 + (void)startCommandSocketSession;
 + (void)stopCommandSocketSession;
 + (void)startSession;
++ (void)getAllCurrentSettings;
 
 @end

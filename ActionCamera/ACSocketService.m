@@ -9,6 +9,7 @@
 #import "ACSocketService.h"
 #import "ACSocketObject.h"
 #import "ACCommandService.h"
+#import "ACSettings.h"
 
 @interface ACSocketService ()
 @property (nonatomic, strong) NSMutableArray *queue;
@@ -16,6 +17,9 @@
 @property (nonatomic, strong) ACSocketObject *socketObject;
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic, strong) NSDate *stopTime;
+@property (strong, nonatomic) NSMutableData *cmdSocketData;
+@property (strong, nonatomic) NSMutableData *datSocketData;
+
 @end
 
 @implementation ACSocketService
@@ -57,6 +61,13 @@ static ACSocketService *socketService = nil;
 {
     return self;
 }
+//- (NSMutableData *)cmdSocketData
+//{
+//    if (!_cmdSocketData) {
+//        _cmdSocketData = [[NSMutableData alloc] init];
+//    }
+//    return _cmdSocketData;
+//}
 #pragma mark - command queue operation
 - (NSMutableArray *)queue
 {
@@ -85,12 +96,14 @@ static ACSocketService *socketService = nil;
     }
     return object;
 }
+
 - (void)resetQueue
 {
     if (_queue) {
         [_queue removeAllObjects];
     }
 }
+
 #pragma mark - socket operation
 - (void)commandLoop
 {
@@ -167,30 +180,25 @@ static ACSocketService *socketService = nil;
 #pragma mark - delegate
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
 {
-    if (sock == self.cmdSocket)
-    {
+    if (sock == self.cmdSocket) {
         NSLog(@"didConnectToHost  7878");
         [ACCommandService startSession];
         [sock readDataWithTimeout:-1 tag:0];
-    }
-    else
-    {
+    } else {
         NSLog(@"didConnectToHost  8787");
-        
     }
 }
 
 - (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-    if (sock == _cmdSocket)
-    {
+    if (sock == _cmdSocket) {
         [self handleCommandSocket:sock data:data tag:tag];
+        self._continue = YES;
+        [self.cmdSocket readDataWithTimeout:-1 buffer:nil bufferOffset:0 maxLength:0 tag:0];
     }
-    else if (sock == _datSocket)
-    {
+    else if (sock == _datSocket){
         [self handleDataSocket:sock data:data tag:tag];
     }
-    self._continue = YES;
 }
 
 - (void)onSocket:(AsyncSocket *)sock didAcceptNewSocket:(AsyncSocket *)newSocket
@@ -201,12 +209,49 @@ static ACSocketService *socketService = nil;
 #pragma mark - handle
 - (void)handleCommandSocket:(AsyncSocket *)sock data:(NSData *)data tag:(long)tag
 {
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-    
-    NSLog(@"---%@---%@", dic, dic[@"param"]);
-    if (self.socketObject.msg_id == 257) {
-        [ACSocketService sharedSocketService].tokenNumber = [dic[@"param"] intValue];
+    if (!_cmdSocketData) {
+        _cmdSocketData = [[NSMutableData alloc] init];
     }
+    
+    [self.cmdSocketData appendData:data];
+    
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:self.cmdSocketData options:NSJSONReadingAllowFragments error:nil];
+    
+    if (!dic) {
+        NSLog(@"not a complete package---");
+        return;
+    }
+    _cmdSocketData = nil;
+    
+    NSLog(@"[recvMsg]:%ld bytes\n%@", data.length, dic);
+    
+    int msg_id  = [dic[@"msg_id"] intValue];
+    NSLog(@"msg_id:%d", msg_id);
+    
+    int rval = [dic[@"rval"] intValue];
+    if (rval < 0) {
+        return;
+    }
+
+    switch (msg_id) {
+        case MSGID_START_SESSION:
+        {
+            self.tokenNumber = [dic[@"param"] intValue];
+            break;
+        }
+        case MSGID_GET_ALL_CURRENT_SETTINGS:
+        {
+            NSArray *settings = dic[@"param"];
+            NSLog(@"setting count:%ld", settings.count);
+            
+            _allSettings = [[ACSettings alloc] initWithArray:settings];
+            NSLog(@"all settings:%@", _allSettings);
+            break;
+        }
+        default:
+            break;
+    }
+    
 }
 
 - (void)handleDataSocket:(AsyncSocket *)sock data:(NSData *)data tag:(long)tag

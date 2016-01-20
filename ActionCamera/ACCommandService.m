@@ -27,7 +27,16 @@
 
 + (void)startSession
 {
-    NSString *cmd  = @"{\"token\":0,\"msg_id\":257}";//[NSString stringWithFormat:@"%@", @"{\"token\":0,\"msg_id\":257}"];//
+    NSString *cmd  = @"{\"token\":0,\"msg_id\":257}";
     [[ACSocketService sharedSocketService] sendCommandToSocket:cmd];
 }
+
++ (void)getAllCurrentSettings
+{
+    ACSocketService *socketService = [ACSocketService sharedSocketService];
+    NSLog(@"socketService:%@, token:%d", socketService, socketService.tokenNumber);
+    NSString *cmd  = [NSString stringWithFormat:@"{\"token\":%d,\"msg_id\":3}", [ACSocketService sharedSocketService].tokenNumber];//
+    [[ACSocketService sharedSocketService] sendCommandToSocket:cmd];
+}
+
 @end

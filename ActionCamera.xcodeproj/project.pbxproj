@@ -11,7 +11,6 @@
 		B59CF8D71C4D254000E09221 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8D61C4D254000E09221 /* AppDelegate.m */; };
 		B59CF8DA1C4D254000E09221 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8D91C4D254000E09221 /* ViewController.m */; };
 		B59CF8DD1C4D254000E09221 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59CF8DB1C4D254000E09221 /* Main.storyboard */; };
-		B59CF8E01C4D254000E09221 /* ActionCamera.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8DE1C4D254000E09221 /* ActionCamera.xcdatamodeld */; };
 		B59CF8E21C4D254000E09221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59CF8E11C4D254000E09221 /* Assets.xcassets */; };
 		B59CF8E51C4D254000E09221 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59CF8E31C4D254000E09221 /* LaunchScreen.storyboard */; };
 		B59CF8F01C4D254000E09221 /* ActionCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8EF1C4D254000E09221 /* ActionCameraTests.m */; };
@@ -24,6 +23,8 @@
 		B59CF91E1C4D277300E09221 /* ACSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF91D1C4D277300E09221 /* ACSocketService.m */; };
 		B59CF9211C4D344000E09221 /* ACSocketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9201C4D344000E09221 /* ACSocketObject.m */; };
 		B59CF9241C4D3D1400E09221 /* ACCommandService.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9231C4D3D1400E09221 /* ACCommandService.m */; };
+		E4FE93DD1C4F469000B8372F /* ACSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FE93DC1C4F469000B8372F /* ACSettings.m */; };
+		E4FE93E01C4F497600B8372F /* ACSettingOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FE93DF1C4F497600B8372F /* ACSettingOptions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +52,6 @@
 		B59CF8D81C4D254000E09221 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B59CF8D91C4D254000E09221 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B59CF8DC1C4D254000E09221 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B59CF8DF1C4D254000E09221 /* ActionCamera.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ActionCamera.xcdatamodel; sourceTree = "<group>"; };
 		B59CF8E11C4D254000E09221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B59CF8E41C4D254000E09221 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B59CF8E61C4D254000E09221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +78,10 @@
 		B59CF9221C4D3D1400E09221 /* ACCommandService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCommandService.h; sourceTree = "<group>"; };
 		B59CF9231C4D3D1400E09221 /* ACCommandService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACCommandService.m; sourceTree = "<group>"; };
 		E4FE93DA1C4F231E00B8372F /* ACDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACDefines.h; sourceTree = "<group>"; };
+		E4FE93DB1C4F469000B8372F /* ACSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSettings.h; sourceTree = "<group>"; };
+		E4FE93DC1C4F469000B8372F /* ACSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSettings.m; sourceTree = "<group>"; };
+		E4FE93DE1C4F497600B8372F /* ACSettingOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSettingOptions.h; sourceTree = "<group>"; };
+		E4FE93DF1C4F497600B8372F /* ACSettingOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSettingOptions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,7 @@
 		B59CF8D11C4D254000E09221 /* ActionCamera */ = {
 			isa = PBXGroup;
 			children = (
+				E4FE93DA1C4F231E00B8372F /* ACDefines.h */,
 				B59CF8D51C4D254000E09221 /* AppDelegate.h */,
 				B59CF8D61C4D254000E09221 /* AppDelegate.m */,
 				B59CF8D81C4D254000E09221 /* ViewController.h */,
@@ -138,12 +143,14 @@
 				B59CF9201C4D344000E09221 /* ACSocketObject.m */,
 				B59CF9221C4D3D1400E09221 /* ACCommandService.h */,
 				B59CF9231C4D3D1400E09221 /* ACCommandService.m */,
-				E4FE93DA1C4F231E00B8372F /* ACDefines.h */,
+				E4FE93DB1C4F469000B8372F /* ACSettings.h */,
+				E4FE93DC1C4F469000B8372F /* ACSettings.m */,
+				E4FE93DE1C4F497600B8372F /* ACSettingOptions.h */,
+				E4FE93DF1C4F497600B8372F /* ACSettingOptions.m */,
 				B59CF8DB1C4D254000E09221 /* Main.storyboard */,
 				B59CF8E11C4D254000E09221 /* Assets.xcassets */,
 				B59CF8E31C4D254000E09221 /* LaunchScreen.storyboard */,
 				B59CF8E61C4D254000E09221 /* Info.plist */,
-				B59CF8DE1C4D254000E09221 /* ActionCamera.xcdatamodeld */,
 				B59CF9081C4D271A00E09221 /* Libs */,
 				B59CF8D21C4D254000E09221 /* Supporting Files */,
 			);
@@ -358,14 +365,15 @@
 				B59CF91E1C4D277300E09221 /* ACSocketService.m in Sources */,
 				B59CF9241C4D3D1400E09221 /* ACCommandService.m in Sources */,
 				B59CF9181C4D271A00E09221 /* GCDAsyncSocket.m in Sources */,
-				B59CF8E01C4D254000E09221 /* ActionCamera.xcdatamodeld in Sources */,
 				B59CF9171C4D271A00E09221 /* README.markdown in Sources */,
 				B59CF91B1C4D271A00E09221 /* AsyncUdpSocket.m in Sources */,
 				B59CF9211C4D344000E09221 /* ACSocketObject.m in Sources */,
 				B59CF8DA1C4D254000E09221 /* ViewController.m in Sources */,
 				B59CF9191C4D271A00E09221 /* GCDAsyncUdpSocket.m in Sources */,
+				E4FE93E01C4F497600B8372F /* ACSettingOptions.m in Sources */,
 				B59CF8D71C4D254000E09221 /* AppDelegate.m in Sources */,
 				B59CF8D41C4D254000E09221 /* main.m in Sources */,
+				E4FE93DD1C4F469000B8372F /* ACSettings.m in Sources */,
 				B59CF91A1C4D271A00E09221 /* AsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,19 +621,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		B59CF8DE1C4D254000E09221 /* ActionCamera.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B59CF8DF1C4D254000E09221 /* ActionCamera.xcdatamodel */,
-			);
-			currentVersion = B59CF8DF1C4D254000E09221 /* ActionCamera.xcdatamodel */;
-			path = ActionCamera.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = B59CF8C71C4D254000E09221 /* Project object */;
 }
