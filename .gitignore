@@ -1,0 +1,4 @@
+.DS_Store
+Pods
+AntsSportApp.xcworkspace/xcuserdata/*.xcuserdatad/
+AntsSportApp.xcodeproj/xcuserdata/*.xcuserdatad/

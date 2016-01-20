@@ -89,4 +89,8 @@
         [self setValue:value forKey:key];
     }
 }
+- (NSString *)description
+{
+    
+}
 @end
