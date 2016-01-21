@@ -23,6 +23,8 @@
 		B59CF91E1C4D277300E09221 /* ACSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF91D1C4D277300E09221 /* ACSocketService.m */; };
 		B59CF9211C4D344000E09221 /* ACSocketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9201C4D344000E09221 /* ACSocketObject.m */; };
 		B59CF9241C4D3D1400E09221 /* ACCommandService.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9231C4D3D1400E09221 /* ACCommandService.m */; };
+		B59CF9561C513A1000E09221 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9531C513A1000E09221 /* NSObject+YYModel.m */; };
+		B59CF9571C513A1000E09221 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9551C513A1000E09221 /* YYClassInfo.m */; };
 		E4FE93DD1C4F469000B8372F /* ACSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FE93DC1C4F469000B8372F /* ACSettings.m */; };
 		E4FE93E01C4F497600B8372F /* ACSettingOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FE93DF1C4F497600B8372F /* ACSettingOptions.m */; };
 /* End PBXBuildFile section */
@@ -77,6 +79,10 @@
 		B59CF9201C4D344000E09221 /* ACSocketObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSocketObject.m; sourceTree = "<group>"; };
 		B59CF9221C4D3D1400E09221 /* ACCommandService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCommandService.h; sourceTree = "<group>"; };
 		B59CF9231C4D3D1400E09221 /* ACCommandService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACCommandService.m; sourceTree = "<group>"; };
+		B59CF9521C513A1000E09221 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
+		B59CF9531C513A1000E09221 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
+		B59CF9541C513A1000E09221 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
+		B59CF9551C513A1000E09221 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
 		E4FE93DA1C4F231E00B8372F /* ACDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACDefines.h; sourceTree = "<group>"; };
 		E4FE93DB1C4F469000B8372F /* ACSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSettings.h; sourceTree = "<group>"; };
 		E4FE93DC1C4F469000B8372F /* ACSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSettings.m; sourceTree = "<group>"; };
@@ -186,6 +192,7 @@
 		B59CF9081C4D271A00E09221 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				B59CF9511C513A1000E09221 /* Model */,
 				B59CF9091C4D271A00E09221 /* CocoaAsyncSocket */,
 			);
 			path = Libs;
@@ -230,6 +237,18 @@
 				B59CF9161C4D271A00E09221 /* AsyncUdpSocket.m */,
 			);
 			path = RunLoop;
+			sourceTree = "<group>";
+		};
+		B59CF9511C513A1000E09221 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B59CF9521C513A1000E09221 /* NSObject+YYModel.h */,
+				B59CF9531C513A1000E09221 /* NSObject+YYModel.m */,
+				B59CF9541C513A1000E09221 /* YYClassInfo.h */,
+				B59CF9551C513A1000E09221 /* YYClassInfo.m */,
+			);
+			name = Model;
+			path = ../Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,9 +390,11 @@
 				B59CF8DA1C4D254000E09221 /* ViewController.m in Sources */,
 				B59CF9191C4D271A00E09221 /* GCDAsyncUdpSocket.m in Sources */,
 				E4FE93E01C4F497600B8372F /* ACSettingOptions.m in Sources */,
+				B59CF9561C513A1000E09221 /* NSObject+YYModel.m in Sources */,
 				B59CF8D71C4D254000E09221 /* AppDelegate.m in Sources */,
 				B59CF8D41C4D254000E09221 /* main.m in Sources */,
 				E4FE93DD1C4F469000B8372F /* ACSettings.m in Sources */,
+				B59CF9571C513A1000E09221 /* YYClassInfo.m in Sources */,
 				B59CF91A1C4D271A00E09221 /* AsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

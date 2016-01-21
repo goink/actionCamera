@@ -27,30 +27,23 @@
 
 + (void)startSession
 {
-    NSString *cmd  = @"{\"token\":0,\"msg_id\":257}";
-    [[ACSocketService sharedSocketService] sendCommandToSocket:cmd];
+    [[ACSocketService sharedSocketService] sendCommandWithMsgID:257];
 }
 
 + (void)getAllCurrentSettings
 {
-    ACSocketService *socketService = [ACSocketService sharedSocketService];
-    NSLog(@"socketService:%@, token:%d", socketService, socketService.tokenNumber);
-    NSString *cmd  = [NSString stringWithFormat:@"{\"token\":%d,\"msg_id\":3}", [ACSocketService sharedSocketService].tokenNumber];
-    [[ACSocketService sharedSocketService] sendCommandToSocket:cmd];
+    [[ACSocketService sharedSocketService] sendCommandWithMsgID:3];
 }
 + (void)getSettingOptions:(NSString *)setting
 {
-    NSString *cmd  = [NSString stringWithFormat:@"{\"token\":%d,\"msg_id\":9,\"param\":\"%@\"}", [ACSocketService sharedSocketService].tokenNumber, setting];
-    [[ACSocketService sharedSocketService] sendCommandToSocket:cmd];
+    [[ACSocketService sharedSocketService] sendCommandWithMsgID:9 type:nil param:setting];
 }
 + (void)setSettingWithType:(NSString *)type param:(NSString *)param
 {
-    NSString *cmd = [NSString stringWithFormat:@"{\"token\":%d,\"msg_id\":2,\"type\":\"%@\",\"param\":\"%@\"}",[ACSocketService sharedSocketService].tokenNumber, type, param];
-    [[ACSocketService sharedSocketService] sendCommandToSocket:cmd];
+    [[ACSocketService sharedSocketService] sendCommandWithMsgID:2 type:type param:param];
 }
 + (void)getSettingWithType:(NSString *)type
 {
-    NSString *cmd = [NSString stringWithFormat:@"{\"token\":%d,\"msg_id\":1,\"type\":\"%@\"}",[ACSocketService sharedSocketService].tokenNumber, type];
-    [[ACSocketService sharedSocketService] sendCommandToSocket:cmd];
+    [[ACSocketService sharedSocketService] sendCommandWithMsgID:1 type:type];
 }
 @end

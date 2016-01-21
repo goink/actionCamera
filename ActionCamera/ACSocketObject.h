@@ -11,11 +11,12 @@
 @interface ACSocketObject : NSObject
 
 @property (nonatomic,assign) int      msg_id;
-@property (nonatomic,strong) NSString *cmd;
+@property (nonatomic,assign) int      token;
 @property (nonatomic,strong) NSString *type;
-@property (nonatomic,strong) NSString *status;
+@property (nonatomic,strong) NSString *param;
 
-- (id)initWithLoadingData:(NSDictionary *)dic;
-- (id)initWithCommand:(NSString *)cmd;
-
++ (instancetype)objectWithMsgID:(int)msg_id type:(NSString *)type param:(NSString *)param token:(int)token;
++ (instancetype)objectWithMsgID:(int)msg_id type:(NSString *)type param:(NSString *)param;
++ (instancetype)objectWithMsgID:(int)msg_id type:(NSString *)type;
++ (instancetype)objectWithMsgID:(int)msg_id;
 @end

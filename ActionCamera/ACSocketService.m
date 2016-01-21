@@ -10,6 +10,7 @@
 #import "ACSocketObject.h"
 #import "ACCommandService.h"
 #import "ACSettings.h"
+#import "NSObject+YYModel.h"
 
 @interface ACSocketService ()
 @property (nonatomic, strong) NSMutableArray *queue;
@@ -119,12 +120,12 @@ static ACSocketService *socketService = nil;
                 _startTime = [NSDate date];
                 _socketObject = object;
                 
-                NSData *cmdData = [_socketObject.cmd dataUsingEncoding:NSUTF8StringEncoding];
+                NSData *cmdData = [[_socketObject modelToJSONString] dataUsingEncoding:NSUTF8StringEncoding];
                 if (!cmdData) return;
                 [self.cmdSocket writeData:cmdData withTimeout:-1 tag:0];
                 
-                _socketObject.status = STATUS_LOADING;
-                NSLog(@"[sendMsg]:%@", _socketObject.cmd);
+//                _socketObject.status = STATUS_LOADING;
+                NSLog(@"[sendMsg]:%@", [_socketObject modelToJSONString]);
 
             });
         }
@@ -169,15 +170,21 @@ static ACSocketService *socketService = nil;
     _datSocket.userData = SocketOfflineByUser;
 }
 
-- (void)sendCommandToSocket:(NSString *)cmd
+- (void)sendCommandWithMsgID:(int)msg_id
 {
-    if (!cmd) {
-        return;
-    }
-    ACSocketObject *obj = [[ACSocketObject alloc] initWithCommand:cmd];
+    ACSocketObject *obj = [ACSocketObject objectWithMsgID:msg_id];
     [self enQueue:obj];
 }
-
+- (void)sendCommandWithMsgID:(int)msg_id type:(NSString *)type
+{
+    ACSocketObject *obj = [ACSocketObject objectWithMsgID:msg_id type:type];
+    [self enQueue:obj];
+}
+- (void)sendCommandWithMsgID:(int)msg_id type:(NSString *)type param:(NSString *)param
+{
+    ACSocketObject *obj = [ACSocketObject objectWithMsgID:msg_id type:type param:param];
+    [self enQueue:obj];
+}
 #pragma mark - delegate
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
 {

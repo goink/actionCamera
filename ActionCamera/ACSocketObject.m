@@ -7,26 +7,34 @@
 //
 
 #import "ACSocketObject.h"
+#import "ACSocketService.h"
 
 @implementation ACSocketObject
 
-- (id)initWithLoadingData:(NSDictionary *)dic
++ (instancetype)objectWithMsgID:(int)msg_id type:(NSString *)type param:(NSString *)param token:(int)token
 {
-    if (self = [super init]) {
-        self.msg_id     = [[dic valueForKey:@"msg_id"] intValue];
-        self.cmd        = [dic valueForKey:@"cmd"];
-        self.type       = [dic valueForKey:@"type"];
-        self.status     = [dic valueForKey:@"status"];
+    ACSocketObject *m = [[ACSocketObject alloc] init];
+    if (m) {
+        m.msg_id = msg_id;
+        m.type = type;
+        m.param = param;
+        m.token = token;
     }
-    return self;
+    return m;
 }
-
-- (id)initWithCommand:(NSString *)cmd
++ (instancetype)objectWithMsgID:(int)msg_id type:(NSString *)type param:(NSString *)param
 {
-    if (self = [super init]) {
-        self.cmd = cmd;
-    }
-    return self;
+    ACSocketObject *m = [ACSocketObject objectWithMsgID:msg_id type:type param:param token:[ACSocketService sharedSocketService].tokenNumber];
+    return m;
 }
-
++ (instancetype)objectWithMsgID:(int)msg_id type:(NSString *)type
+{
+    ACSocketObject *m = [ACSocketObject objectWithMsgID:msg_id type:type param:nil token:[ACSocketService sharedSocketService].tokenNumber];
+    return m;
+}
++ (instancetype)objectWithMsgID:(int)msg_id
+{
+    ACSocketObject *m = [ACSocketObject objectWithMsgID:msg_id type:nil param:nil token:[ACSocketService sharedSocketService].tokenNumber];
+    return m;
+}
 @end
