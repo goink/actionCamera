@@ -1,4 +1,4 @@
 .DS_Store
 Pods
 ActionCamera.xcworkspace/xcuserdata/*.xcuserdatad/
-ActionCamera.axcodeproj/xcuserdata/*.xcuserdatad/
+ActionCamera.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/
