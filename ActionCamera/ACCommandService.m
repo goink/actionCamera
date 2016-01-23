@@ -46,4 +46,8 @@
 {
     [[ACSocketService sharedSocketService] sendCommandWithMsgID:1 type:type];
 }
++ (void)resetVideoFlow
+{
+    [[ACSocketService sharedSocketService] sendCommandWithMsgID:259 type:nil param:@"none_force"];
+}
 @end

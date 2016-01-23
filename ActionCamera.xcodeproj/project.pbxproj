@@ -25,6 +25,11 @@
 		B59CF9241C4D3D1400E09221 /* ACCommandService.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9231C4D3D1400E09221 /* ACCommandService.m */; };
 		B59CF9561C513A1000E09221 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9531C513A1000E09221 /* NSObject+YYModel.m */; };
 		B59CF9571C513A1000E09221 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9551C513A1000E09221 /* YYClassInfo.m */; };
+		B59CF9591C53C5EF00E09221 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF9581C53C5EF00E09221 /* MobileVLCKit.framework */; };
+		B59CF9611C53D17400E09221 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF9601C53D17400E09221 /* libbz2.tbd */; };
+		B59CF9631C53D18800E09221 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF9621C53D18800E09221 /* libiconv.tbd */; };
+		B59CF9711C53D44700E09221 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF9701C53D44700E09221 /* AudioToolbox.framework */; };
+		B59CF9721C53D49C00E09221 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF95E1C53D15000E09221 /* libstdc++.6.0.9.tbd */; };
 		E4FE93DD1C4F469000B8372F /* ACSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FE93DC1C4F469000B8372F /* ACSettings.m */; };
 		E4FE93E01C4F497600B8372F /* ACSettingOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FE93DF1C4F497600B8372F /* ACSettingOptions.m */; };
 /* End PBXBuildFile section */
@@ -83,6 +88,19 @@
 		B59CF9531C513A1000E09221 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
 		B59CF9541C513A1000E09221 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
 		B59CF9551C513A1000E09221 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
+		B59CF9581C53C5EF00E09221 /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
+		B59CF95A1C53D0FB00E09221 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		B59CF95C1C53D11C00E09221 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B59CF95E1C53D15000E09221 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		B59CF9601C53D17400E09221 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		B59CF9621C53D18800E09221 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		B59CF9641C53D1B100E09221 /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
+		B59CF9661C53D1D700E09221 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		B59CF9681C53D1F000E09221 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		B59CF96A1C53D21000E09221 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		B59CF96C1C53D27900E09221 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		B59CF96E1C53D39900E09221 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B59CF9701C53D44700E09221 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E4FE93DA1C4F231E00B8372F /* ACDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACDefines.h; sourceTree = "<group>"; };
 		E4FE93DB1C4F469000B8372F /* ACSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSettings.h; sourceTree = "<group>"; };
 		E4FE93DC1C4F469000B8372F /* ACSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSettings.m; sourceTree = "<group>"; };
@@ -95,6 +113,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59CF9721C53D49C00E09221 /* libstdc++.6.0.9.tbd in Frameworks */,
+				B59CF9711C53D44700E09221 /* AudioToolbox.framework in Frameworks */,
+				B59CF9631C53D18800E09221 /* libiconv.tbd in Frameworks */,
+				B59CF9611C53D17400E09221 /* libbz2.tbd in Frameworks */,
+				B59CF9591C53C5EF00E09221 /* MobileVLCKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +189,7 @@
 		B59CF8D21C4D254000E09221 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B59CF9731C53D61A00E09221 /* Frameworks */,
 				B59CF8D31C4D254000E09221 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -251,6 +275,27 @@
 			path = ../Model;
 			sourceTree = "<group>";
 		};
+		B59CF9731C53D61A00E09221 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B59CF9581C53C5EF00E09221 /* MobileVLCKit.framework */,
+				B59CF9701C53D44700E09221 /* AudioToolbox.framework */,
+				B59CF96E1C53D39900E09221 /* CoreGraphics.framework */,
+				B59CF96C1C53D27900E09221 /* MobileCoreServices.framework */,
+				B59CF96A1C53D21000E09221 /* VideoToolbox.framework */,
+				B59CF9681C53D1F000E09221 /* CoreAudio.framework */,
+				B59CF9661C53D1D700E09221 /* MediaPlayer.framework */,
+				B59CF9641C53D1B100E09221 /* libiconv.2.4.0.tbd */,
+				B59CF9621C53D18800E09221 /* libiconv.tbd */,
+				B59CF9601C53D17400E09221 /* libbz2.tbd */,
+				B59CF95E1C53D15000E09221 /* libstdc++.6.0.9.tbd */,
+				B59CF95C1C53D11C00E09221 /* libz.tbd */,
+				B59CF95A1C53D0FB00E09221 /* libstdc++.tbd */,
+			);
+			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -318,6 +363,7 @@
 				TargetAttributes = {
 					B59CF8CE1C4D254000E09221 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = F2242D823E;
 					};
 					B59CF8EA1C4D254000E09221 = {
 						CreatedOnToolsVersion = 7.2;
@@ -470,6 +516,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -514,6 +561,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -536,6 +584,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ActionCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ActionCamera;
@@ -547,6 +601,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ActionCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ActionCamera;

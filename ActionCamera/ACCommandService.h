@@ -17,5 +17,5 @@
 + (void)getSettingOptions:(NSString *)setting;
 + (void)setSettingWithType:(NSString *)type param:(NSString *)param;
 + (void)getSettingWithType:(NSString *)type;
-
++ (void)resetVideoFlow;
 @end
