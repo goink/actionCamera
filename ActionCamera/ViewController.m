@@ -12,6 +12,7 @@
 #import "ACCommandService.h"
 #import <MobileVLCKit/MobileVLCKit.h>
 
+
 @interface ViewController () <VLCMediaPlayerDelegate>
 @property (nonatomic, strong) ACSocketService *socketService;
 @property (nonatomic, strong) UIView *playView;
@@ -23,8 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-
     UIButton *button = [[UIButton alloc] init];
     button.bounds = CGRectMake(0, 0, 200, 48);
     button.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height*2/3);
@@ -39,7 +38,9 @@
     self.socketService = [ACSocketService sharedSocketService];
     
     [_socketService startCommandSocketSession];
+
 }
+
 - (void)setupMediaPlayer
 {
     UIView *playView = [UIView new];
@@ -56,13 +57,22 @@
     VLCMediaList *list = [[VLCMediaList alloc] initWithArray:@[media]];
     _mediaPlayer.mediaList = list;
 }
+- (ACSettings *)getMyName
+{
+    ACSettings *settings = [ACSettings new];
+    return settings;
+}
 - (void)buttonClick
 {
     if ([_socketService.cmdSocket isConnected]) {
         
         [ACCommandService getAllCurrentSettings];
-        [ACCommandService getSettingOptions:@"video_resolution"];
-        [ACCommandService getSettingWithType:@"camera_clock"];
+        
+        NSString *propertyName = getPropertyName(video_resolution);
+        [ACCommandService getSettingOptions:propertyName];
+        
+        propertyName = getPropertyName(camera_clock);
+        [ACCommandService getSettingWithType:propertyName];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         NSLocale *twentyFour = [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
@@ -71,8 +81,8 @@
         NSDate *date = [NSDate date];
         NSString *time = [dateFormatter stringFromDate:date];
         
-        [ACCommandService setSettingWithType:@"camera_clock" param:time];
-        [ACCommandService getSettingWithType:@"camera_clock"];
+        [ACCommandService setSettingWithType:propertyName param:time];
+        [ACCommandService getSettingWithType:propertyName];
         [ACCommandService resetVideoFlow];
         [_mediaPlayer play];
     }

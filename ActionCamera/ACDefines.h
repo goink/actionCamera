@@ -72,4 +72,9 @@
 
 #define MSGID_SD_CAPACITY_COUNT          16777243
 
+
+#define momo ([ACSocketService sharedSocketService].allSettings)
+#define getPropertyName(property) [[(@""#property) componentsSeparatedByString:@"."] lastObject];([ACSocketService sharedSocketService].allSettings.property)
+
+
 #endif /* ACDefines_h */
