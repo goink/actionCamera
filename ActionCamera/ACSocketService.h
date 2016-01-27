@@ -36,4 +36,10 @@ enum{
 - (void)sendCommandWithMsgID:(int)msg_id type:(NSString *)type;
 - (void)sendCommandWithMsgID:(int)msg_id type:(NSString *)type param:(NSString *)param;
 
+
+- (void)GET:(NSString *)URLString
+                     parameters:(id)parameters
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure;
+
 @end

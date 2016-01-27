@@ -20,7 +20,9 @@
 @property (nonatomic, strong) NSDate *stopTime;
 @property (strong, nonatomic) NSMutableData *cmdSocketData;
 @property (strong, nonatomic) NSMutableData *datSocketData;
-
+@property (nonatomic, strong) NSMutableDictionary *successHandlers;
+@property (nonatomic, strong) NSMutableDictionary *failureHanlders;
+@property (nullable, copy) void (^completionBlock)(void);
 @end
 
 @implementation ACSocketService
@@ -56,6 +58,9 @@ static ACSocketService *socketService = nil;
         self.settingOptions = [[ACSettingOptions alloc] init];
         [NSThread detachNewThreadSelector:@selector(commandLoop) toTarget:self withObject:nil];
         
+        self.successHandlers = [NSMutableDictionary dictionary];
+        self.failureHanlders = [NSMutableDictionary dictionary];
+        [self systemProbe];
     }
     return self;
 }
@@ -69,6 +74,23 @@ static ACSocketService *socketService = nil;
 //        _cmdSocketData = [[NSMutableData alloc] init];
 //    }
 //    return _cmdSocketData;
+//}
+//- (void)systemProbe
+//{
+//    __weak typeof(self) weakSelf = self;
+//    
+//    [self addMessageIDProbe:@"257" success:^(id responseObject) {
+//        NSDictionary *dic = (NSDictionary *)responseObject;
+//        weakSelf.tokenNumber = [dic[@"param"] intValue];
+//    } failure:^(NSError *error) {
+//        
+//    }];
+//    [self addMessageIDProbe:@"257" success:^(id responseObject) {
+//        NSDictionary *dic = (NSDictionary *)responseObject;
+//        weakSelf.tokenNumber = [dic[@"param"] intValue];
+//    } failure:^(NSError *error) {
+//        
+//    }];
 //}
 #pragma mark - command queue operation
 - (NSMutableArray *)queue
@@ -233,52 +255,127 @@ static ACSocketService *socketService = nil;
     
     NSLog(@"[recvMsg]:%ld bytes\n%@", data.length, dic);
     
-    int msg_id  = [dic[@"msg_id"] intValue];
-    NSLog(@"msg_id:%d", msg_id);
-    
+    NSString *msg_id = [NSString stringWithFormat:@"%d", [dic[@"msg_id"] intValue]];
+//    if ([msg_id isEqualToString:@"257"]) {
+//        self.tokenNumber = [dic[@"param"] intValue];
+//    }
+//    int msg_id  = [dic[@"msg_id"] intValue];
+//    NSLog(@"msg_id:%d", msg_id);
+//    
     int rval = [dic[@"rval"] intValue];
     if (rval < 0) {
         return;
     }
-
-    switch (msg_id) {
-        case MSGID_START_SESSION:
-        {
-            self.tokenNumber = [dic[@"param"] intValue];
-            break;
+    
+    if ([self successHandlerIsSupport:msg_id]) {
+        NSArray *handlers = self.successHandlers[msg_id];
+        if (handlers) {
+            [handlers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                void (^block)(NSDictionary *dictionnary) = obj;
+                block(dic);
+            }];
         }
-        case MSGID_GET_ALL_CURRENT_SETTINGS:
-        {
-            NSArray *settings = dic[@"param"];
-            _allSettings = [[ACSettings alloc] initWithArray:settings];
-            NSLog(@"all settings:%@", _allSettings);
-            break;
-        }
-        case MSGID_GET_SINGLE_SETTING_OPTIONS:
-        {
-            NSString *setting = dic[@"param"];
-            NSArray *options  = dic[@"options"];
-            [self.settingOptions setValue:setting withOptions:options];
-            
-            NSLog(@"%@:%@", setting, options);
-            break;
-        }
-        case MSGID_SET_SETTING:
-        {
-            
-        }
-        case MSGID_GET_SETTING:
-        {
-            
-        }
-        default:
-            break;
     }
+//
+//    switch (msg_id) {
+//        case MSGID_START_SESSION:
+//        {
+//            self.tokenNumber = [dic[@"param"] intValue];
+//            break;
+//        }
+//        case MSGID_GET_ALL_CURRENT_SETTINGS:
+//        {
+//            NSArray *settings = dic[@"param"];
+//            _allSettings = [[ACSettings alloc] initWithArray:settings];
+//            NSLog(@"all settings:%@", _allSettings);
+//            break;
+//        }
+//        case MSGID_GET_SINGLE_SETTING_OPTIONS:
+//        {
+//            NSString *setting = dic[@"param"];
+//            NSArray *options  = dic[@"options"];
+//            [self.settingOptions setValue:setting withOptions:options];
+//            
+//            NSLog(@"%@:%@", setting, options);
+//            break;
+//        }
+//        case MSGID_SET_SETTING:
+//        {
+//            
+//        }
+//        case MSGID_GET_SETTING:
+//        {
+//            
+//        }
+//        default:
+//            break;
+//    }
     
 }
+- (void)systemProbe
+{
+    __weak typeof(self) weakSelf = self;
 
+    NSString *msgID = [NSString stringWithFormat:@"%u", MSGID_START_SESSION];
+    [self addMessageIDProbe:msgID success:^(id responseObject) {
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        [ACSocketService sharedSocketService].tokenNumber = [dic[@"param"] intValue];
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    msgID = [NSString stringWithFormat:@"%u", MSGID_GET_ALL_CURRENT_SETTINGS];
+    [self addMessageIDProbe:msgID success:^(id responseObject) {
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSArray *settings = dic[@"param"];
+        weakSelf.allSettings = [[ACSettings alloc] initWithArray:settings];
+        NSLog(@"all settings:%@", weakSelf.allSettings);
+
+    } failure:^(NSError *error) {
+        
+    }];
+}
 - (void)handleDataSocket:(AsyncSocket *)sock data:(NSData *)data tag:(long)tag
 {
     
+}
+
+#pragma mark - system msg id handler register
+- (void)addMessageIDProbe:(NSString *)msg_id
+                  success:(void (^)(id responseObject))success
+                  failure:(void (^)(NSError *error))failure
+{
+    NSMutableArray *successHandlers = (NSMutableArray *)self.successHandlers[msg_id];
+    if (!successHandlers) {
+        successHandlers = [NSMutableArray array];
+        self.successHandlers[msg_id] = successHandlers;
+    }
+    if (success) {
+        [successHandlers addObject:[success copy]];
+    }
+    
+    NSMutableArray *failureHandlers = (NSMutableArray *)self.failureHanlders[msg_id];
+    if (!failureHandlers) {
+        failureHandlers = [NSMutableArray array];
+    }
+    if (failure) {
+        [failureHandlers addObject:[failure copy]];
+    }
+}
+- (BOOL)successHandlerIsSupport:(NSString *)msg_id
+{
+    NSArray *allKeys = [self.successHandlers allKeys];
+    if ([allKeys containsObject:msg_id]) {
+        return YES;
+    }
+    return NO;
+}
+- (BOOL)failureHandlerIsSupport:(NSString *)msg_id
+{
+    NSArray *allKeys = [self.failureHanlders allKeys];
+    if ([allKeys containsObject:msg_id]) {
+        return YES;
+    }
+    return NO;
 }
 @end
