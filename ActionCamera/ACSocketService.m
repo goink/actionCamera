@@ -68,30 +68,7 @@ static ACSocketService *socketService = nil;
 {
     return self;
 }
-//- (NSMutableData *)cmdSocketData
-//{
-//    if (!_cmdSocketData) {
-//        _cmdSocketData = [[NSMutableData alloc] init];
-//    }
-//    return _cmdSocketData;
-//}
-//- (void)systemProbe
-//{
-//    __weak typeof(self) weakSelf = self;
-//    
-//    [self addMessageIDProbe:@"257" success:^(id responseObject) {
-//        NSDictionary *dic = (NSDictionary *)responseObject;
-//        weakSelf.tokenNumber = [dic[@"param"] intValue];
-//    } failure:^(NSError *error) {
-//        
-//    }];
-//    [self addMessageIDProbe:@"257" success:^(id responseObject) {
-//        NSDictionary *dic = (NSDictionary *)responseObject;
-//        weakSelf.tokenNumber = [dic[@"param"] intValue];
-//    } failure:^(NSError *error) {
-//        
-//    }];
-//}
+
 #pragma mark - command queue operation
 - (NSMutableArray *)queue
 {
@@ -146,7 +123,6 @@ static ACSocketService *socketService = nil;
                 if (!cmdData) return;
                 [self.cmdSocket writeData:cmdData withTimeout:-1 tag:0];
                 
-//                _socketObject.status = STATUS_LOADING;
                 NSLog(@"[sendMsg]:%@", [_socketObject modelToJSONString]);
 
             });
@@ -256,12 +232,7 @@ static ACSocketService *socketService = nil;
     NSLog(@"[recvMsg]:%ld bytes\n%@", data.length, dic);
     
     NSString *msg_id = [NSString stringWithFormat:@"%d", [dic[@"msg_id"] intValue]];
-//    if ([msg_id isEqualToString:@"257"]) {
-//        self.tokenNumber = [dic[@"param"] intValue];
-//    }
-//    int msg_id  = [dic[@"msg_id"] intValue];
-//    NSLog(@"msg_id:%d", msg_id);
-//    
+
     int rval = [dic[@"rval"] intValue];
     if (rval < 0) {
         return;
@@ -276,40 +247,6 @@ static ACSocketService *socketService = nil;
             }];
         }
     }
-//
-//    switch (msg_id) {
-//        case MSGID_START_SESSION:
-//        {
-//            self.tokenNumber = [dic[@"param"] intValue];
-//            break;
-//        }
-//        case MSGID_GET_ALL_CURRENT_SETTINGS:
-//        {
-//            NSArray *settings = dic[@"param"];
-//            _allSettings = [[ACSettings alloc] initWithArray:settings];
-//            NSLog(@"all settings:%@", _allSettings);
-//            break;
-//        }
-//        case MSGID_GET_SINGLE_SETTING_OPTIONS:
-//        {
-//            NSString *setting = dic[@"param"];
-//            NSArray *options  = dic[@"options"];
-//            [self.settingOptions setValue:setting withOptions:options];
-//            
-//            NSLog(@"%@:%@", setting, options);
-//            break;
-//        }
-//        case MSGID_SET_SETTING:
-//        {
-//            
-//        }
-//        case MSGID_GET_SETTING:
-//        {
-//            
-//        }
-//        default:
-//            break;
-//    }
     
 }
 - (void)systemProbe
@@ -330,7 +267,6 @@ static ACSocketService *socketService = nil;
         NSArray *settings = dic[@"param"];
         weakSelf.allSettings = [[ACSettings alloc] initWithArray:settings];
         NSLog(@"all settings:%@", weakSelf.allSettings);
-
     } failure:^(NSError *error) {
         
     }];
