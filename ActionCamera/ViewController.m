@@ -106,12 +106,7 @@
 {
     if ([_socketService.cmdSocket isConnected]) {
         
-//        NSString *string = [NSString stringWithFormat: @"ffmpeg -rtsp_transport tcp -i rtsp://192.168.31.109/live -vcodec copy -f flv -r 10 -s 848x480 rtmp://xiaoyi.uplive.ksyun.com/live/ijyvhalihltodhyxcmyo?nonce=juacjbwv&public=1&accesskey=GOe%%2BAKegVrnNP1%%2Fx6cVn&expire=7226553600&signature=YBGCBx0apBeBBhHlDsTNA3LNFKU%%3D"];
-        //NSString *string = [NSString stringWithFormat: @"ffmpeg -rtsp_transport udp -i rtsp://192.168.31.108/live-vcodec copy -f flv -r 12 -an rtmp://xiaoyi.uplive.ksyun.com/live/ijyvhalihltodhyxcmyo?nonce=juacjbwv&public=1&accesskey=GOe%%2BAKegVrnNP1%%2Fx6cVn&expire=7226553600&signature=YBGCBx0apBeBBhHlDsTNA3LNFKU%%3D", from, to];
-        
-        NSString *from = [NSString stringWithFormat:@"rtsp://192.168.31.108/live"];
-        NSString *to = [NSString stringWithFormat:@"rtmp://xiaoyi.uplive.ksyun.com/live/ijyvhalihltodhyxcmyo?nonce=juacjbwv&public=1&accesskey=GOe%%2BAKegVrnNP1%%2Fx6cVn&expire=7226553600&signature=YBGCBx0apBeBBhHlDsTNA3LNFKU%%3D"];
-        
+
         NSString *string = [NSString stringWithFormat: @"ffmpeg -rtsp_transport udp -i %@ -vcodec copy -c:a copy -f flv -r 12 %@", from, to];
         
         NSLog(@"cmd:%@", string);
