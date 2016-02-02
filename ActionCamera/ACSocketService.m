@@ -257,6 +257,9 @@ static ACSocketService *socketService = nil;
     [self addMessageIDProbe:msgID success:^(id responseObject) {
         NSDictionary *dic = (NSDictionary *)responseObject;
         [ACSocketService sharedSocketService].tokenNumber = [dic[@"param"] intValue];
+        
+        [ACCommandService getAllCurrentSettings];
+        
     } failure:^(NSError *error) {
         
     }];
@@ -267,6 +270,7 @@ static ACSocketService *socketService = nil;
         NSArray *settings = dic[@"param"];
         weakSelf.allSettings = [[ACSettings alloc] initWithArray:settings];
         NSLog(@"all settings:%@", weakSelf.allSettings);
+        [ACCommandService resetVideoFlow];
     } failure:^(NSError *error) {
         
     }];

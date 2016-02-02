@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "17FC7AE1625FA07D8A4FFF49F4BD82C256DE0B37",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "17FC7AE1625FA07D8A4FFF49F4BD82C256DE0B37" : 0,
+    "2A2EB27B2E48FE9EE5CC51D740CB058D425AD540" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2946991C-E5D6-44ED-9FB9-19D6EB3B98DE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "17FC7AE1625FA07D8A4FFF49F4BD82C256DE0B37" : "actionCamera\/",
+    "2A2EB27B2E48FE9EE5CC51D740CB058D425AD540" : "..\/work\/xy\/AntsSportApp"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ActionCamera",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ActionCamera.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:goink\/actionCamera.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "17FC7AE1625FA07D8A4FFF49F4BD82C256DE0B37"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/192.168.8.246:10022\/sports_ios\/AntsSportApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2A2EB27B2E48FE9EE5CC51D740CB058D425AD540"
+    }
+  ]
+}

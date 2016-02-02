@@ -11,6 +11,7 @@
 @interface ACMsgHandlerObject : NSObject
 @property (nonatomic, assign) int msg_id;
 @property (nonatomic, strong) NSString *msg_id_str;
-@property (nonatomic, weak) id target;
-@property (nonatomic, strong) void (^block)(NSDictionary *dictionnary);
+@property (nonatomic,   weak) id target;
+@property (nonatomic, strong) void (^successBlock)(NSDictionary *dictionnary);
+@property (nonatomic, strong) void (^failureBlock)(NSDictionary *dictionnary);
 @end

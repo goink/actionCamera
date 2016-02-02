@@ -11,7 +11,9 @@
 #import "ACSocketService.h"
 #import "ACCommandService.h"
 #import <MobileVLCKit/MobileVLCKit.h>
-
+#import "ffmpeg.h"
+#import "HXTaskDispatch.h"
+#import "HXQueue.h"
 
 @interface ViewController () <VLCMediaPlayerDelegate>
 @property (nonatomic, strong) ACSocketService *socketService;
@@ -32,6 +34,17 @@
     [button setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    
+    
+    UIButton *buttonw = [[UIButton alloc] init];
+    buttonw.bounds = CGRectMake(0, 0, 200, 48);
+    buttonw.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height-50);
+    [buttonw setTitle:@"Push Stream to KSY" forState:UIControlStateNormal];
+    [buttonw setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [buttonw setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    [buttonw addTarget:self action:@selector(buttonClick2) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:buttonw];
+    
     
     [self setupMediaPlayer];
     
@@ -67,26 +80,46 @@
     if ([_socketService.cmdSocket isConnected]) {
         
         [ACCommandService getAllCurrentSettings];
-        
-        NSString *propertyName = getPropertyName(video_resolution);
-        [ACCommandService getSettingOptions:propertyName];
-        
-        propertyName = getPropertyName(camera_clock);
-        [ACCommandService getSettingWithType:propertyName];
-        
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        NSLocale *twentyFour = [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
-        dateFormatter.locale = twentyFour;
-        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
-        NSDate *date = [NSDate date];
-        NSString *time = [dateFormatter stringFromDate:date];
-        
-        [ACCommandService setSettingWithType:propertyName param:time];
-        [ACCommandService getSettingWithType:propertyName];
+
+//        NSString *propertyName = getPropertyName(video_resolution);
+//        [ACCommandService getSettingOptions:propertyName];
+//        
+//        propertyName = getPropertyName(camera_clock);
+//        [ACCommandService getSettingWithType:propertyName];
+//        
+//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//        NSLocale *twentyFour = [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
+//        dateFormatter.locale = twentyFour;
+//        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
+//        NSDate *date = [NSDate date];
+//        NSString *time = [dateFormatter stringFromDate:date];
+//        
+//        [ACCommandService setSettingWithType:propertyName param:time];
+//        [ACCommandService getSettingWithType:propertyName];
         [ACCommandService resetVideoFlow];
-        [_mediaPlayer play];
+//        [_mediaPlayer play];
+        
     }
 }
 
-
+- (void)buttonClick2
+{
+    if ([_socketService.cmdSocket isConnected]) {
+        
+//        NSString *string = [NSString stringWithFormat: @"ffmpeg -rtsp_transport tcp -i rtsp://192.168.31.109/live -vcodec copy -f flv -r 10 -s 848x480 rtmp://xiaoyi.uplive.ksyun.com/live/ijyvhalihltodhyxcmyo?nonce=juacjbwv&public=1&accesskey=GOe%%2BAKegVrnNP1%%2Fx6cVn&expire=7226553600&signature=YBGCBx0apBeBBhHlDsTNA3LNFKU%%3D"];
+        //NSString *string = [NSString stringWithFormat: @"ffmpeg -rtsp_transport udp -i rtsp://192.168.31.108/live-vcodec copy -f flv -r 12 -an rtmp://xiaoyi.uplive.ksyun.com/live/ijyvhalihltodhyxcmyo?nonce=juacjbwv&public=1&accesskey=GOe%%2BAKegVrnNP1%%2Fx6cVn&expire=7226553600&signature=YBGCBx0apBeBBhHlDsTNA3LNFKU%%3D", from, to];
+        
+        NSString *from = [NSString stringWithFormat:@"rtsp://192.168.31.108/live"];
+        NSString *to = [NSString stringWithFormat:@"rtmp://xiaoyi.uplive.ksyun.com/live/ijyvhalihltodhyxcmyo?nonce=juacjbwv&public=1&accesskey=GOe%%2BAKegVrnNP1%%2Fx6cVn&expire=7226553600&signature=YBGCBx0apBeBBhHlDsTNA3LNFKU%%3D"];
+        
+        NSString *string = [NSString stringWithFormat: @"ffmpeg -rtsp_transport udp -i %@ -vcodec copy -c:a copy -f flv -r 12 %@", from, to];
+        
+        NSLog(@"cmd:%@", string);
+        
+        [[HXTaskDispatch shareTaskDispatch] addTask: string finished:^(BOOL finished) {
+            
+        }];
+        
+    }
+}
 @end
