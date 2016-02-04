@@ -9,8 +9,8 @@
 #ifndef ACDefines_h
 #define ACDefines_h
 
-#define CAMERA_IP @"192.168.31.108"
-#define CAMERA_IP_RTSP @"rtsp://192.168.31.108/live"
+#define CAMERA_IP @"192.168.42.1"
+#define CAMERA_IP_RTSP @"rtsp://192.168.42.1/live"
 
 #define CAMERA_CMD_PORT 7878
 #define CAMERA_DAT_PORT 8787

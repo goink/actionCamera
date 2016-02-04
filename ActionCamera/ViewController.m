@@ -11,9 +11,6 @@
 #import "ACSocketService.h"
 #import "ACCommandService.h"
 #import <MobileVLCKit/MobileVLCKit.h>
-#import "ffmpeg.h"
-#import "HXTaskDispatch.h"
-#import "HXQueue.h"
 
 @interface ViewController () <VLCMediaPlayerDelegate>
 @property (nonatomic, strong) ACSocketService *socketService;
@@ -42,7 +39,7 @@
     [buttonw setTitle:@"Push Stream to KSY" forState:UIControlStateNormal];
     [buttonw setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [buttonw setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    [buttonw addTarget:self action:@selector(buttonClick2) forControlEvents:UIControlEventTouchUpInside];
+    [buttonw addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:buttonw];
     
     
@@ -97,29 +94,9 @@
         [ACCommandService setSettingWithType:propertyName param:time];
         [ACCommandService getSettingWithType:propertyName];
         [ACCommandService resetVideoFlow];
-//        [_mediaPlayer play];
+        [_mediaPlayer play];
         
     }
 }
 
-- (void)buttonClick2
-{
-    if ([_socketService.cmdSocket isConnected]) {
-        
-//        NSString *string = [NSString stringWithFormat: @"ffmpeg -rtsp_transport tcp -i rtsp://192.168.31.109/live -vcodec copy -f flv -r 10 -s 848x480 rtmp://xiaoyi.uplive.ksyun.com/live/ijyvhalihltodhyxcmyo?nonce=juacjbwv&public=1&accesskey=GOe%%2BAKegVrnNP1%%2Fx6cVn&expire=7226553600&signature=YBGCBx0apBeBBhHlDsTNA3LNFKU%%3D"];
-        //NSString *string = [NSString stringWithFormat: @"ffmpeg -rtsp_transport udp -i rtsp://192.168.31.108/live-vcodec copy -f flv -r 12 -an rtmp://xiaoyi.uplive.ksyun.com/live/ijyvhalihltodhyxcmyo?nonce=juacjbwv&public=1&accesskey=GOe%%2BAKegVrnNP1%%2Fx6cVn&expire=7226553600&signature=YBGCBx0apBeBBhHlDsTNA3LNFKU%%3D", from, to];
-        
-        NSString *from = [NSString stringWithFormat:@"rtsp://192.168.31.108/live"];
-        NSString *to = [NSString stringWithFormat:@"rtmp://xiaoyi.uplive.ksyun.com/live/ijyvhalihltodhyxcmyo?nonce=juacjbwv&public=1&accesskey=GOe%%2BAKegVrnNP1%%2Fx6cVn&expire=7226553600&signature=YBGCBx0apBeBBhHlDsTNA3LNFKU%%3D"];
-        
-        NSString *string = [NSString stringWithFormat: @"ffmpeg -rtsp_transport udp -i %@ -c copy -f flv -r 12 %@", from, to];
-        
-        NSLog(@"cmd:%@", string);
-        
-        [[HXTaskDispatch shareTaskDispatch] addTask: string finished:^(BOOL finished) {
-            
-        }];
-        
-    }
-}
 @end
