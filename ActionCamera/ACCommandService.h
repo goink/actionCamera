@@ -19,9 +19,12 @@
 + (void)getSettingWithType:(NSString *)type;
 + (void)resetVideoFlow;
 
-- (void)GET:(NSString *)URLString
- parameters:(id)parameters
-    success:(void (^)(id responseObject))success
-    failure:(void (^)(NSError *error))failure;
++ (void)execute:(int)msgid
+         params:(NSDictionary *)params
+        success:(void (^)(id responseObject))success
+        failure:(void (^)(NSError *error))failure;
 
++ (void) listen:(int)msgid
+        success:(void (^)(id responseObject))success
+        failure:(void (^)(NSError *error))failure;
 @end

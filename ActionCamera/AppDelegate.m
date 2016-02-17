@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "ACSocketService.h"
 
 @interface AppDelegate ()
-
+@property (nonatomic, strong) ACSocketService *socketService;
 @end
 
 @implementation AppDelegate
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.socketService = [ACSocketService sharedSocketService];
     return YES;
 }
 

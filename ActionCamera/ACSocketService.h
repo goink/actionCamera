@@ -11,6 +11,7 @@
 #import "ACDefines.h"
 #import "ACSettings.h"
 #import "ACSettingOptions.h"
+#import "ACCommandObject.h"
 
 enum{
     SocketOfflineByServer,
@@ -25,7 +26,7 @@ enum{
 @property (nonatomic, strong) AsyncSocket *cmdSocket;
 @property (nonatomic, strong) AsyncSocket *datSocket;
 @property (nonatomic, assign) int         tokenNumber;
-@property (strong, nonatomic) ACSettings  *allSettings;
+@property (strong, nonatomic) ACSettings  *settings;
 @property (strong, nonatomic) ACSettingOptions *settingOptions;
 
 + (ACSocketService *)sharedSocketService;
@@ -36,7 +37,12 @@ enum{
 - (void)sendCommandWithMsgID:(int)msg_id type:(NSString *)type;
 - (void)sendCommandWithMsgID:(int)msg_id type:(NSString *)type param:(NSString *)param;
 
+- (void)addMessageIDProbe:(NSString *)msg_id
+                  success:(void (^)(id responseObject))success
+                  failure:(void (^)(id errorObject))failure;
 
-
+- (void)sendCommandWithSocketObject:(ACSocketObject *)socketObj
+                  success:(void (^)(id responseObject))success
+                  failure:(void (^)(id errorObject))failure;
 
 @end

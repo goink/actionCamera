@@ -50,4 +50,20 @@
 {
     [[ACSocketService sharedSocketService] sendCommandWithMsgID:259 type:nil param:@"none_force"];
 }
+
+#pragma mark - 执行相机命令，带回调注册
++ (void)execute:(int)msgid params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure
+{
+//    NSString *msgidString = [NSString stringWithFormat:@"%u", msgid];
+
+    ACSocketObject *socObj = [ACSocketObject objectWithMsgID:msgid type:params[@"type"] param:params[@"param"]];
+    [[ACSocketService sharedSocketService] sendCommandWithSocketObject:socObj success:success failure:failure];
+}
+
++(void)listen:(int)msgid success:(void (^)(id))success failure:(void (^)(NSError *))failure
+{
+    NSString *msgidString = [NSString stringWithFormat:@"%u", msgid];
+    //注册回调
+    [[ACSocketService sharedSocketService] addMessageIDProbe:msgidString success:success failure:failure];
+}
 @end

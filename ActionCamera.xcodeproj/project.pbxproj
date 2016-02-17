@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52635741C746FA0000BAD40 /* ACCommandObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B52635731C746FA0000BAD40 /* ACCommandObject.m */; };
 		B5521A071C5B42CB001E6E96 /* ACMsgHandlerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B5521A061C5B42CB001E6E96 /* ACMsgHandlerObject.m */; };
 		B59CF8D41C4D254000E09221 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8D31C4D254000E09221 /* main.m */; };
 		B59CF8D71C4D254000E09221 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8D61C4D254000E09221 /* AppDelegate.m */; };
@@ -59,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B52635721C746FA0000BAD40 /* ACCommandObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCommandObject.h; sourceTree = "<group>"; };
+		B52635731C746FA0000BAD40 /* ACCommandObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACCommandObject.m; sourceTree = "<group>"; };
 		B5521A051C5B42CB001E6E96 /* ACMsgHandlerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMsgHandlerObject.h; sourceTree = "<group>"; };
 		B5521A061C5B42CB001E6E96 /* ACMsgHandlerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMsgHandlerObject.m; sourceTree = "<group>"; };
 		B59CF8CF1C4D254000E09221 /* ActionCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActionCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +194,8 @@
 				B59CF9201C4D344000E09221 /* ACSocketObject.m */,
 				B59CF9221C4D3D1400E09221 /* ACCommandService.h */,
 				B59CF9231C4D3D1400E09221 /* ACCommandService.m */,
+				B52635721C746FA0000BAD40 /* ACCommandObject.h */,
+				B52635731C746FA0000BAD40 /* ACCommandObject.m */,
 				E4FE93DB1C4F469000B8372F /* ACSettings.h */,
 				E4FE93DC1C4F469000B8372F /* ACSettings.m */,
 				E4FE93DE1C4F497600B8372F /* ACSettingOptions.h */,
@@ -455,6 +460,7 @@
 				B59CF91E1C4D277300E09221 /* ACSocketService.m in Sources */,
 				B59CF9241C4D3D1400E09221 /* ACCommandService.m in Sources */,
 				B59CF9181C4D271A00E09221 /* GCDAsyncSocket.m in Sources */,
+				B52635741C746FA0000BAD40 /* ACCommandObject.m in Sources */,
 				B59CF9171C4D271A00E09221 /* README.markdown in Sources */,
 				B59CF91B1C4D271A00E09221 /* AsyncUdpSocket.m in Sources */,
 				B59CF9211C4D344000E09221 /* ACSocketObject.m in Sources */,

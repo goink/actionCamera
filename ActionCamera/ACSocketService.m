@@ -9,13 +9,14 @@
 #import "ACSocketService.h"
 #import "ACSocketObject.h"
 #import "ACCommandService.h"
+#import "ACCommandObject.h"
 #import "ACSettings.h"
 #import "NSObject+YYModel.h"
 
 @interface ACSocketService ()
 @property (nonatomic, strong) NSMutableArray *queue;
 @property (nonatomic, assign) BOOL _continue;
-@property (nonatomic, strong) ACSocketObject *socketObject;
+@property (nonatomic, strong) ACCommandObject *cmdObject;
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic, strong) NSDate *stopTime;
 @property (strong, nonatomic) NSMutableData *cmdSocketData;
@@ -117,13 +118,13 @@ static ACSocketService *socketService = nil;
                 self._continue = NO;
                 id object = [self deQueue];
                 _startTime = [NSDate date];
-                _socketObject = object;
+                _cmdObject = object;
                 
-                NSData *cmdData = [[_socketObject modelToJSONString] dataUsingEncoding:NSUTF8StringEncoding];
+                NSData *cmdData = [[_cmdObject.socketObject modelToJSONString] dataUsingEncoding:NSUTF8StringEncoding];
                 if (!cmdData) return;
                 [self.cmdSocket writeData:cmdData withTimeout:-1 tag:0];
                 
-                NSLog(@"[sendMsg]:%@", [_socketObject modelToJSONString]);
+                NSLog(@"[sendMsg]:%@", [_cmdObject.socketObject modelToJSONString]);
 
             });
         }
@@ -170,7 +171,8 @@ static ACSocketService *socketService = nil;
 
 - (void)sendCommandWithMsgID:(int)msg_id
 {
-    ACSocketObject *obj = [ACSocketObject objectWithMsgID:msg_id];
+    ACSocketObject *socObj = [ACSocketObject objectWithMsgID:msg_id];
+    ACCommandObject *obj = [ACCommandObject objectWithSocketObject:socObj success:nil failure:nil];
     [self enQueue:obj];
 }
 - (void)sendCommandWithMsgID:(int)msg_id type:(NSString *)type
@@ -183,6 +185,8 @@ static ACSocketService *socketService = nil;
     ACSocketObject *obj = [ACSocketObject objectWithMsgID:msg_id type:type param:param];
     [self enQueue:obj];
 }
+
+
 #pragma mark - delegate
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
 {
@@ -201,8 +205,7 @@ static ACSocketService *socketService = nil;
         [self handleCommandSocket:sock data:data tag:tag];
         self._continue = YES;
         [self.cmdSocket readDataWithTimeout:-1 buffer:nil bufferOffset:0 maxLength:0 tag:0];
-    }
-    else if (sock == _datSocket){
+    } else if (sock == _datSocket) {
         [self handleDataSocket:sock data:data tag:tag];
     }
 }
@@ -235,6 +238,20 @@ static ACSocketService *socketService = nil;
 
     int rval = [dic[@"rval"] intValue];
     if (rval < 0) {
+        if ([self failureHandlerIsSupport:msg_id]) {
+            NSArray *handlers = self.failureHanlders[msg_id];
+            if (handlers) {
+                [handlers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    void (^block)(NSDictionary *dictionnary) = obj;
+                    block(dic);
+                }];
+            }
+        }
+        
+        if (_cmdObject.failureBlock) {
+            _cmdObject.failureBlock(dic);
+        }
+        
         return;
     }
     
@@ -248,6 +265,9 @@ static ACSocketService *socketService = nil;
         }
     }
     
+    if (_cmdObject.successBlock) {
+        _cmdObject.successBlock(dic);
+    }
 }
 - (void)systemProbe
 {
@@ -260,7 +280,7 @@ static ACSocketService *socketService = nil;
         
         [ACCommandService getAllCurrentSettings];
         
-    } failure:^(NSError *error) {
+    } failure:^(id errorObject) {
         
     }];
     
@@ -268,10 +288,9 @@ static ACSocketService *socketService = nil;
     [self addMessageIDProbe:msgID success:^(id responseObject) {
         NSDictionary *dic = (NSDictionary *)responseObject;
         NSArray *settings = dic[@"param"];
-        weakSelf.allSettings = [[ACSettings alloc] initWithArray:settings];
-        NSLog(@"all settings:%@", weakSelf.allSettings);
+        weakSelf.settings = [[ACSettings alloc] initWithArray:settings];
         [ACCommandService resetVideoFlow];
-    } failure:^(NSError *error) {
+    } failure:^(id errorObject) {
         
     }];
 }
@@ -283,7 +302,7 @@ static ACSocketService *socketService = nil;
 #pragma mark - system msg id handler register
 - (void)addMessageIDProbe:(NSString *)msg_id
                   success:(void (^)(id responseObject))success
-                  failure:(void (^)(NSError *error))failure
+                  failure:(void (^)(id errorObject))failure
 {
     NSMutableArray *successHandlers = (NSMutableArray *)self.successHandlers[msg_id];
     if (!successHandlers) {
@@ -318,4 +337,11 @@ static ACSocketService *socketService = nil;
     }
     return NO;
 }
+
+- (void)sendCommandWithSocketObject:(ACSocketObject *)socketObj success:(void (^)(id))success failure:(void (^)(id))failure
+{
+    ACCommandObject *obj = [ACCommandObject objectWithSocketObject:socketObj success:success failure:failure];
+    [self enQueue:obj];
+}
+
 @end

@@ -74,7 +74,7 @@
 
 
 #define momo ([ACSocketService sharedSocketService].allSettings)
-#define getPropertyName(property) [[(@""#property) componentsSeparatedByString:@"."] lastObject];([ACSocketService sharedSocketService].allSettings.property)
+#define getPropertyName(property) [[(@""#property) componentsSeparatedByString:@"."] lastObject];([ACSocketService sharedSocketService].settings.property)
 
 
 #endif /* ACDefines_h */

@@ -16,6 +16,7 @@
 @property (nonatomic, strong) ACSocketService *socketService;
 @property (nonatomic, strong) UIView *playView;
 @property (nonatomic, strong) VLCMediaListPlayer *mediaPlayer;
+
 @end
 
 @implementation ViewController
@@ -79,8 +80,19 @@
         [ACCommandService getAllCurrentSettings];
 
         NSString *propertyName = getPropertyName(video_resolution);
-        [ACCommandService getSettingOptions:propertyName];
+        
+        
+        NSDictionary *params = @{@"param":propertyName};
 
+        [ACCommandService execute:MSGID_GET_SETTING params:params success:^(id responseObject) {
+            NSLog(@"responseObject:%@", responseObject);
+        } failure:^(NSError *error) {
+            NSLog(@"get video resolution failed.");
+        }];
+
+        
+        
+        
         propertyName = getPropertyName(camera_clock);
         [ACCommandService getSettingWithType:propertyName];
 
