@@ -13,6 +13,7 @@
 		B52635881C75672C000BAD40 /* ACSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B526357F1C75672C000BAD40 /* ACSettings.m */; };
 		B52635891C75672C000BAD40 /* ACSocketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B52635821C75672C000BAD40 /* ACSocketObject.m */; };
 		B526358A1C75672C000BAD40 /* ACSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = B52635841C75672C000BAD40 /* ACSocketService.m */; };
+		B526358D1C756AD2000BAD40 /* CameraHAM.m in Sources */ = {isa = PBXBuildFile; fileRef = B526358C1C756AD2000BAD40 /* CameraHAM.m */; };
 		B59CF8D41C4D254000E09221 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8D31C4D254000E09221 /* main.m */; };
 		B59CF8D71C4D254000E09221 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8D61C4D254000E09221 /* AppDelegate.m */; };
 		B59CF8DA1C4D254000E09221 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8D91C4D254000E09221 /* ViewController.m */; };
@@ -71,6 +72,8 @@
 		B52635821C75672C000BAD40 /* ACSocketObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSocketObject.m; sourceTree = "<group>"; };
 		B52635831C75672C000BAD40 /* ACSocketService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSocketService.h; sourceTree = "<group>"; };
 		B52635841C75672C000BAD40 /* ACSocketService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSocketService.m; sourceTree = "<group>"; };
+		B526358B1C756AD2000BAD40 /* CameraHAM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraHAM.h; sourceTree = "<group>"; };
+		B526358C1C756AD2000BAD40 /* CameraHAM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraHAM.m; sourceTree = "<group>"; };
 		B59CF8CF1C4D254000E09221 /* ActionCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActionCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59CF8D31C4D254000E09221 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B59CF8D51C4D254000E09221 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 		B52635751C75672C000BAD40 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				B526358B1C756AD2000BAD40 /* CameraHAM.h */,
+				B526358C1C756AD2000BAD40 /* CameraHAM.m */,
 				B52635801C75672C000BAD40 /* Socket */,
 				B52635761C75672C000BAD40 /* Command */,
 				B526357B1C75672C000BAD40 /* SettingAndOption */,
@@ -488,6 +493,7 @@
 				B52635861C75672C000BAD40 /* ACCommandService.m in Sources */,
 				B59CF9171C4D271A00E09221 /* README.markdown in Sources */,
 				B59CF91B1C4D271A00E09221 /* AsyncUdpSocket.m in Sources */,
+				B526358D1C756AD2000BAD40 /* CameraHAM.m in Sources */,
 				B59CF8DA1C4D254000E09221 /* ViewController.m in Sources */,
 				B52635851C75672C000BAD40 /* ACCommandObject.m in Sources */,
 				B59CF9191C4D271A00E09221 /* GCDAsyncUdpSocket.m in Sources */,

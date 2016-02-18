@@ -11,6 +11,9 @@
 #import "ACCommandService.h"
 #import "ACCommandObject.h"
 #import "ACSettings.h"
+#import "ACSettingOptions.h"
+#import "CameraHAM.h"
+
 #import "NSObject+YYModel.h"
 
 @interface ACSocketService ()
@@ -23,7 +26,7 @@
 @property (strong, nonatomic) NSMutableData *datSocketData;
 @property (nonatomic, strong) NSMutableDictionary *successHandlers;
 @property (nonatomic, strong) NSMutableDictionary *failureHanlders;
-@property (nullable, copy) void (^completionBlock)(void);
+//@property (nullable, copy) void (^completionBlock)(void);
 @end
 
 @implementation ACSocketService
@@ -56,7 +59,7 @@ static ACSocketService *socketService = nil;
 {
     self = [super init];
     if (self) {
-        self.settingOptions = [[ACSettingOptions alloc] init];
+//        self.settingOptions = [[ACSettingOptions alloc] init];
         [NSThread detachNewThreadSelector:@selector(commandLoop) toTarget:self withObject:nil];
         
         self.successHandlers = [NSMutableDictionary dictionary];
@@ -118,7 +121,7 @@ static ACSocketService *socketService = nil;
                 self._continue = NO;
                 id object = [self deQueue];
                 _startTime = [NSDate date];
-                _cmdObject = object;
+                _cmdObject = (ACCommandObject *)object;
                 
                 NSData *cmdData = [[_cmdObject.socketObject modelToJSONString] dataUsingEncoding:NSUTF8StringEncoding];
                 if (!cmdData) return;
@@ -210,7 +213,7 @@ static ACSocketService *socketService = nil;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:self.cmdSocketData options:NSJSONReadingAllowFragments error:nil];
     
     if (!dic) {
-        NSLog(@"not a complete package---");
+        NSLog(@"[not a complete package]");
         return;
     }
     _cmdSocketData = nil;
@@ -254,25 +257,37 @@ static ACSocketService *socketService = nil;
 }
 - (void)systemProbe
 {
-    __weak typeof(self) weakSelf = self;
+//    __weak typeof(self) weakSelf = self;
 
+    //监听Start session
     NSString *msgID = [NSString stringWithFormat:@"%u", MSGID_START_SESSION];
     [self addObserverForMsgId:msgID success:^(id responseObject) {
         NSDictionary *dic = (NSDictionary *)responseObject;
         [ACSocketService sharedSocketService].tokenNumber = [dic[@"param"] intValue];
-        
         [ACCommandService getAllCurrentSettings];
-        
     } failure:^(id errorObject) {
         
     }];
     
+    //监听get all current settings
     msgID = [NSString stringWithFormat:@"%u", MSGID_GET_ALL_CURRENT_SETTINGS];
     [self addObserverForMsgId:msgID success:^(id responseObject) {
         NSDictionary *dic = (NSDictionary *)responseObject;
         NSArray *settings = dic[@"param"];
-        weakSelf.settings = [[ACSettings alloc] initWithArray:settings];
-        [ACCommandService resetVideoFlow];
+        [CameraHAM shared].settings = [[ACSettings alloc] initWithArray:settings];
+        [ACCommandService getOptionsList];
+    } failure:^(id errorObject) {
+        
+    }];
+    
+    //监听各种options
+    msgID = [NSString stringWithFormat:@"%u", MSGID_GET_SINGLE_SETTING_OPTIONS];
+    [self addObserverForMsgId:msgID success:^(id responseObject) {
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSArray *options = dic[@"options"];
+        NSString *param = dic[@"param"];
+        [[CameraHAM shared].settingOptions setValue:param withOptions:options];
+
     } failure:^(id errorObject) {
         
     }];

@@ -18,6 +18,7 @@
 + (void)setSettingWithType:(NSString *)type param:(NSString *)param;
 + (void)getSettingWithType:(NSString *)type;
 + (void)resetVideoFlow;
++ (void)getOptionsList;
 
 + (void)execute:(int)msgid
          params:(NSDictionary *)params

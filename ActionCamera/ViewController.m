@@ -11,6 +11,7 @@
 #import "ACSocketService.h"
 #import "ACCommandService.h"
 #import <MobileVLCKit/MobileVLCKit.h>
+#import "Camera/CameraHAM.h"
 
 @interface ViewController () <VLCMediaPlayerDelegate>
 @property (nonatomic, strong) ACSocketService *socketService;
@@ -40,15 +41,14 @@
     [buttonw setTitle:@"Push Stream to KSY" forState:UIControlStateNormal];
     [buttonw setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [buttonw setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    [buttonw addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+    [buttonw addTarget:self action:@selector(hello) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:buttonw];
-    
     
     [self setupMediaPlayer];
     
-    self.socketService = [ACSocketService sharedSocketService];
-    
-    [ACCommandService startCommandSocketSession];
+//    self.socketService = [ACSocketService sharedSocketService];
+//    
+//    [ACCommandService startCommandSocketSession];
 }
 
 - (void)setupMediaPlayer
@@ -67,41 +67,48 @@
     VLCMediaList *list = [[VLCMediaList alloc] initWithArray:@[media]];
     _mediaPlayer.mediaList = list;
 }
-- (ACSettings *)getMyName
-{
-    ACSettings *settings = [ACSettings new];
-    return settings;
-}
+
 - (void)buttonClick
 {
-    if ([_socketService.cmdSocket isConnected]) {
-
-        NSString *propertyName = getPropertyName(video_resolution);
-        
-        NSDictionary *params = @{@"param":propertyName};
-
-        [ACCommandService execute:MSGID_GET_SINGLE_SETTING_OPTIONS params:params success:^(id responseObject) {
-            NSLog(@"responseObject:%@", responseObject);
-        } failure:^(NSError *error) {
-            NSLog(@"get video resolution failed.");
-        }];
-
-        propertyName = getPropertyName(camera_clock);
-        [ACCommandService getSettingWithType:propertyName];
-
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        NSLocale *twentyFour = [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
-        dateFormatter.locale = twentyFour;
-        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
-        NSDate *date = [NSDate date];
-        NSString *time = [dateFormatter stringFromDate:date];
-        
-        [ACCommandService setSettingWithType:propertyName param:time];
-        [ACCommandService getSettingWithType:propertyName];
-        [ACCommandService resetVideoFlow];
+    if ([[CameraHAM shared] isCameraWiFiConnected]) {
         [_mediaPlayer play];
-        
+        [self videoResolutionGettingTest];
+        [self cameraClockSettingTest];
+       
     }
+}
+- (void)hello
+{
+    ACSettingOptions *options = [CameraHAM shared].settingOptions;
+    NSLog(@"options:%@", options);
+}
+- (void)videoResolutionGettingTest
+{
+    NSString *propertyName = getSettingName(video_resolution);
+    
+    NSDictionary *params = @{@"param":propertyName};
+    
+    [ACCommandService execute:MSGID_GET_SINGLE_SETTING_OPTIONS params:params success:^(id responseObject) {
+        NSLog(@"responseObject:%@", responseObject);
+    } failure:^(NSError *error) {
+        NSLog(@"get video resolution failed.");
+    }];
+}
+
+- (void)cameraClockSettingTest
+{
+    NSString *type = getSettingName(camera_clock);
+    [ACCommandService getSettingWithType:type];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *twentyFour = [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
+    dateFormatter.locale = twentyFour;
+    [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
+    NSDate *date = [NSDate date];
+    NSString *time = [dateFormatter stringFromDate:date];
+    
+    [ACCommandService setSettingWithType:type param:time];
+    [ACCommandService getSettingWithType:type];
 }
 
 @end

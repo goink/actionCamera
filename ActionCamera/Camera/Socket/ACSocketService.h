@@ -26,8 +26,8 @@ enum{
 @property (nonatomic, strong) AsyncSocket *cmdSocket;
 @property (nonatomic, strong) AsyncSocket *datSocket;
 @property (nonatomic, assign) int         tokenNumber;
-@property (strong, nonatomic) ACSettings  *settings;
-@property (strong, nonatomic) ACSettingOptions *settingOptions;
+//@property (strong, nonatomic) ACSettings  *settings;
+//@property (strong, nonatomic) ACSettingOptions *settingOptions;
 
 + (ACSocketService *)sharedSocketService;
 

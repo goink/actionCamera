@@ -74,7 +74,67 @@
 
 
 #define momo ([ACSocketService sharedSocketService].allSettings)
-#define getPropertyName(property) [[(@""#property) componentsSeparatedByString:@"."] lastObject];([ACSocketService sharedSocketService].settings.property)
+#define getSettingName(property) [[(@""#property) componentsSeparatedByString:@"."] lastObject];([CameraHAM shared].settings.property)
+#define getOptionName(property) [[(@""#property) componentsSeparatedByString:@"."] lastObject];([CameraHAM shared].settingOptions.property)
+
+
+typedef NS_ENUM(NSUInteger, CurrentMode) {
+    CurrentModeRecord      = 0,      // 录像
+    CurrentModeSnapshot    = 1,      // 快拍
+    CurrentModePhoto       = 2,      // 拍照
+};
+
+typedef NS_ENUM(NSUInteger, CurrentPhotoMode) {
+    CurrentPhotoModeNormal      = 0,     // 普通拍照
+    CurrentPhotoModePrecise     = 1,     // 延时拍照
+    CurrentPhotoModeTiming      = 2,     // 定时拍照
+    CurrentPhotoModeBurst       = 3,     // 连续拍照
+};
+
+typedef NS_ENUM(NSUInteger, CurrentRecordMode) {//不要与拍照模式重复
+    CurrentRecordModeNormal        = 4,     // 普通录像
+    CurrentRecordModeTimeLapse     = 5,     // 延时录像
+    CurrentRecordModeVideoPhoto    = 6,     // 录像拍照
+    CurrentRecordModeLoopVideo     = 7,     // 循环录像
+    CurrentRecordModeSlowMotion     = 8,     // 慢动作
+};
+
+typedef NS_ENUM(NSUInteger, CameraPowerType) {
+    //    CameraBatteryDanger,              // 1-5
+    //    CameraBatteryLow,                 // 6-35
+    //    CameraBatteryMid,                 // 36-65
+    //    CameraBatteryHigh,                // 66-100
+    //    CameraBatteryCharge,              // 充电中
+    //    CameraBatteryNone                 // 没有电池
+    CameraPowerBattery,
+    CameraPowerAdapter
+};
+
+typedef NS_ENUM(NSInteger, CameraStatus){
+    CameraStatusNormal                =1,           // 正常状态什么事没干
+    CameraStatusSending               =1 << 1,      // 正在发送命令
+    CameraStatusNormalRecording       =1 << 2,      // 正在普通摄像
+    CameraStatusTimelapseRecording    =1 << 3,      // 正在延时摄像
+    CameraStatusPhotoRecording        =1 << 4,      // 正在拍照+摄像
+    CameraStatusPhotoing              =1 << 5,      // 正在普通拍照
+    CameraStatusPrecising             =1 << 6,      // 正在延时拍照
+    CameraStatusTiming                =1 << 7,      // 正在倒计时拍照
+    CameraStatusBursting              =1 << 8,      // 正在连续拍照
+    CameraStatusQuikckRecording       =1 << 9,      // 正在快拍
+    CameraStatusLoopRecording         =1 << 10,     // 正在循环摄像
+    CameraStatusSlowMotionRecording   =1 << 11,     // 正在慢动作摄像
+    
+};
+
+typedef NS_ENUM(NSUInteger, CameraAspectRatio) {
+    CameraAspectRatioNone        = 0,      // 未知
+    CameraAspectRatio4T3         = 1,      // 4:3
+    CameraAspectRatio16T9        = 2,      // 16:9
+};
+
+#define CameraStatusGeneralRecording (CameraStatusNormalRecording | CameraStatusTimelapseRecording | CameraStatusPhotoRecording | CameraStatusLoopRecording | CameraStatusSlowMotionRecording) //摄像状态的并集
+#define CameraStatusGeneralPhotoing  (CameraStatusPhotoing | CameraStatusPrecising | CameraStatusTiming | CameraStatusBursting)
+
 
 
 #endif /* ACDefines_h */

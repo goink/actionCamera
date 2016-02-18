@@ -8,9 +8,10 @@
 
 #import "AppDelegate.h"
 #import "ACSocketService.h"
-
+#import "CameraHAM.h"
 @interface AppDelegate ()
 @property (nonatomic, strong) ACSocketService *socketService;
+@property (nonatomic, strong) CameraHAM *cameraHAM;
 @end
 
 @implementation AppDelegate
@@ -19,6 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.socketService = [ACSocketService sharedSocketService];
+    _cameraHAM = [CameraHAM shared];
     return YES;
 }
 
