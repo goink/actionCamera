@@ -48,8 +48,7 @@
     
     self.socketService = [ACSocketService sharedSocketService];
     
-    [_socketService startCommandSocketSession];
-
+    [ACCommandService startCommandSocketSession];
 }
 
 - (void)setupMediaPlayer
@@ -76,23 +75,17 @@
 - (void)buttonClick
 {
     if ([_socketService.cmdSocket isConnected]) {
-        
-        [ACCommandService getAllCurrentSettings];
 
         NSString *propertyName = getPropertyName(video_resolution);
         
-        
         NSDictionary *params = @{@"param":propertyName};
 
-        [ACCommandService execute:MSGID_GET_SETTING params:params success:^(id responseObject) {
+        [ACCommandService execute:MSGID_GET_SINGLE_SETTING_OPTIONS params:params success:^(id responseObject) {
             NSLog(@"responseObject:%@", responseObject);
         } failure:^(NSError *error) {
             NSLog(@"get video resolution failed.");
         }];
 
-        
-        
-        
         propertyName = getPropertyName(camera_clock);
         [ACCommandService getSettingWithType:propertyName];
 

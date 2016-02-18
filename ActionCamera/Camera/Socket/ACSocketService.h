@@ -33,11 +33,8 @@ enum{
 
 - (void)startCommandSocketSession;
 - (void)stopCommandSocketSession;
-- (void)sendCommandWithMsgID:(int)msg_id;
-- (void)sendCommandWithMsgID:(int)msg_id type:(NSString *)type;
-- (void)sendCommandWithMsgID:(int)msg_id type:(NSString *)type param:(NSString *)param;
 
-- (void)addMessageIDProbe:(NSString *)msg_id
+- (void)addObserverForMsgId:(NSString *)msg_id
                   success:(void (^)(id responseObject))success
                   failure:(void (^)(id errorObject))failure;
 

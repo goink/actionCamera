@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B52635741C746FA0000BAD40 /* ACCommandObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B52635731C746FA0000BAD40 /* ACCommandObject.m */; };
-		B5521A071C5B42CB001E6E96 /* ACMsgHandlerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B5521A061C5B42CB001E6E96 /* ACMsgHandlerObject.m */; };
+		B52635851C75672C000BAD40 /* ACCommandObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B52635781C75672C000BAD40 /* ACCommandObject.m */; };
+		B52635861C75672C000BAD40 /* ACCommandService.m in Sources */ = {isa = PBXBuildFile; fileRef = B526357A1C75672C000BAD40 /* ACCommandService.m */; };
+		B52635871C75672C000BAD40 /* ACSettingOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = B526357D1C75672C000BAD40 /* ACSettingOptions.m */; };
+		B52635881C75672C000BAD40 /* ACSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B526357F1C75672C000BAD40 /* ACSettings.m */; };
+		B52635891C75672C000BAD40 /* ACSocketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B52635821C75672C000BAD40 /* ACSocketObject.m */; };
+		B526358A1C75672C000BAD40 /* ACSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = B52635841C75672C000BAD40 /* ACSocketService.m */; };
 		B59CF8D41C4D254000E09221 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8D31C4D254000E09221 /* main.m */; };
 		B59CF8D71C4D254000E09221 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8D61C4D254000E09221 /* AppDelegate.m */; };
 		B59CF8DA1C4D254000E09221 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8D91C4D254000E09221 /* ViewController.m */; };
@@ -22,9 +26,6 @@
 		B59CF9191C4D271A00E09221 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9111C4D271A00E09221 /* GCDAsyncUdpSocket.m */; };
 		B59CF91A1C4D271A00E09221 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9141C4D271A00E09221 /* AsyncSocket.m */; };
 		B59CF91B1C4D271A00E09221 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9161C4D271A00E09221 /* AsyncUdpSocket.m */; };
-		B59CF91E1C4D277300E09221 /* ACSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF91D1C4D277300E09221 /* ACSocketService.m */; };
-		B59CF9211C4D344000E09221 /* ACSocketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9201C4D344000E09221 /* ACSocketObject.m */; };
-		B59CF9241C4D3D1400E09221 /* ACCommandService.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9231C4D3D1400E09221 /* ACCommandService.m */; };
 		B59CF9561C513A1000E09221 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9531C513A1000E09221 /* NSObject+YYModel.m */; };
 		B59CF9571C513A1000E09221 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9551C513A1000E09221 /* YYClassInfo.m */; };
 		B59CF9591C53C5EF00E09221 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF9581C53C5EF00E09221 /* MobileVLCKit.framework */; };
@@ -38,8 +39,6 @@
 		B5C8AAC31C5F221000E2DBA8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C8AAC21C5F221000E2DBA8 /* AVFoundation.framework */; };
 		B5C8AACC1C5F243B00E2DBA8 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF9681C53D1F000E09221 /* CoreAudio.framework */; };
 		B5C8AACE1C5F247700E2DBA8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C8AACD1C5F247700E2DBA8 /* CoreMedia.framework */; };
-		E4FE93DD1C4F469000B8372F /* ACSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FE93DC1C4F469000B8372F /* ACSettings.m */; };
-		E4FE93E01C4F497600B8372F /* ACSettingOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FE93DF1C4F497600B8372F /* ACSettingOptions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,10 +59,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B52635721C746FA0000BAD40 /* ACCommandObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCommandObject.h; sourceTree = "<group>"; };
-		B52635731C746FA0000BAD40 /* ACCommandObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACCommandObject.m; sourceTree = "<group>"; };
-		B5521A051C5B42CB001E6E96 /* ACMsgHandlerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMsgHandlerObject.h; sourceTree = "<group>"; };
-		B5521A061C5B42CB001E6E96 /* ACMsgHandlerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMsgHandlerObject.m; sourceTree = "<group>"; };
+		B52635771C75672C000BAD40 /* ACCommandObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCommandObject.h; sourceTree = "<group>"; };
+		B52635781C75672C000BAD40 /* ACCommandObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACCommandObject.m; sourceTree = "<group>"; };
+		B52635791C75672C000BAD40 /* ACCommandService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCommandService.h; sourceTree = "<group>"; };
+		B526357A1C75672C000BAD40 /* ACCommandService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACCommandService.m; sourceTree = "<group>"; };
+		B526357C1C75672C000BAD40 /* ACSettingOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSettingOptions.h; sourceTree = "<group>"; };
+		B526357D1C75672C000BAD40 /* ACSettingOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSettingOptions.m; sourceTree = "<group>"; };
+		B526357E1C75672C000BAD40 /* ACSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSettings.h; sourceTree = "<group>"; };
+		B526357F1C75672C000BAD40 /* ACSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSettings.m; sourceTree = "<group>"; };
+		B52635811C75672C000BAD40 /* ACSocketObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSocketObject.h; sourceTree = "<group>"; };
+		B52635821C75672C000BAD40 /* ACSocketObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSocketObject.m; sourceTree = "<group>"; };
+		B52635831C75672C000BAD40 /* ACSocketService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSocketService.h; sourceTree = "<group>"; };
+		B52635841C75672C000BAD40 /* ACSocketService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSocketService.m; sourceTree = "<group>"; };
 		B59CF8CF1C4D254000E09221 /* ActionCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActionCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59CF8D31C4D254000E09221 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B59CF8D51C4D254000E09221 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -90,12 +97,6 @@
 		B59CF9141C4D271A00E09221 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
 		B59CF9151C4D271A00E09221 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
 		B59CF9161C4D271A00E09221 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
-		B59CF91C1C4D277300E09221 /* ACSocketService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSocketService.h; sourceTree = "<group>"; };
-		B59CF91D1C4D277300E09221 /* ACSocketService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSocketService.m; sourceTree = "<group>"; };
-		B59CF91F1C4D344000E09221 /* ACSocketObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSocketObject.h; sourceTree = "<group>"; };
-		B59CF9201C4D344000E09221 /* ACSocketObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSocketObject.m; sourceTree = "<group>"; };
-		B59CF9221C4D3D1400E09221 /* ACCommandService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCommandService.h; sourceTree = "<group>"; };
-		B59CF9231C4D3D1400E09221 /* ACCommandService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACCommandService.m; sourceTree = "<group>"; };
 		B59CF9521C513A1000E09221 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
 		B59CF9531C513A1000E09221 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
 		B59CF9541C513A1000E09221 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
@@ -118,10 +119,6 @@
 		B5C8AAC21C5F221000E2DBA8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B5C8AACD1C5F247700E2DBA8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		E4FE93DA1C4F231E00B8372F /* ACDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACDefines.h; sourceTree = "<group>"; };
-		E4FE93DB1C4F469000B8372F /* ACSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSettings.h; sourceTree = "<group>"; };
-		E4FE93DC1C4F469000B8372F /* ACSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSettings.m; sourceTree = "<group>"; };
-		E4FE93DE1C4F497600B8372F /* ACSettingOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSettingOptions.h; sourceTree = "<group>"; };
-		E4FE93DF1C4F497600B8372F /* ACSettingOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSettingOptions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +157,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B52635751C75672C000BAD40 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				B52635801C75672C000BAD40 /* Socket */,
+				B52635761C75672C000BAD40 /* Command */,
+				B526357B1C75672C000BAD40 /* SettingAndOption */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		B52635761C75672C000BAD40 /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				B52635771C75672C000BAD40 /* ACCommandObject.h */,
+				B52635781C75672C000BAD40 /* ACCommandObject.m */,
+				B52635791C75672C000BAD40 /* ACCommandService.h */,
+				B526357A1C75672C000BAD40 /* ACCommandService.m */,
+			);
+			path = Command;
+			sourceTree = "<group>";
+		};
+		B526357B1C75672C000BAD40 /* SettingAndOption */ = {
+			isa = PBXGroup;
+			children = (
+				B526357C1C75672C000BAD40 /* ACSettingOptions.h */,
+				B526357D1C75672C000BAD40 /* ACSettingOptions.m */,
+				B526357E1C75672C000BAD40 /* ACSettings.h */,
+				B526357F1C75672C000BAD40 /* ACSettings.m */,
+			);
+			path = SettingAndOption;
+			sourceTree = "<group>";
+		};
+		B52635801C75672C000BAD40 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				B52635811C75672C000BAD40 /* ACSocketObject.h */,
+				B52635821C75672C000BAD40 /* ACSocketObject.m */,
+				B52635831C75672C000BAD40 /* ACSocketService.h */,
+				B52635841C75672C000BAD40 /* ACSocketService.m */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
 		B59CF8C61C4D254000E09221 = {
 			isa = PBXGroup;
 			children = (
@@ -188,20 +228,7 @@
 				B59CF8D61C4D254000E09221 /* AppDelegate.m */,
 				B59CF8D81C4D254000E09221 /* ViewController.h */,
 				B59CF8D91C4D254000E09221 /* ViewController.m */,
-				B59CF91C1C4D277300E09221 /* ACSocketService.h */,
-				B59CF91D1C4D277300E09221 /* ACSocketService.m */,
-				B59CF91F1C4D344000E09221 /* ACSocketObject.h */,
-				B59CF9201C4D344000E09221 /* ACSocketObject.m */,
-				B59CF9221C4D3D1400E09221 /* ACCommandService.h */,
-				B59CF9231C4D3D1400E09221 /* ACCommandService.m */,
-				B52635721C746FA0000BAD40 /* ACCommandObject.h */,
-				B52635731C746FA0000BAD40 /* ACCommandObject.m */,
-				E4FE93DB1C4F469000B8372F /* ACSettings.h */,
-				E4FE93DC1C4F469000B8372F /* ACSettings.m */,
-				E4FE93DE1C4F497600B8372F /* ACSettingOptions.h */,
-				E4FE93DF1C4F497600B8372F /* ACSettingOptions.m */,
-				B5521A051C5B42CB001E6E96 /* ACMsgHandlerObject.h */,
-				B5521A061C5B42CB001E6E96 /* ACMsgHandlerObject.m */,
+				B52635751C75672C000BAD40 /* Camera */,
 				B59CF8DB1C4D254000E09221 /* Main.storyboard */,
 				B59CF8E11C4D254000E09221 /* Assets.xcassets */,
 				B59CF8E31C4D254000E09221 /* LaunchScreen.storyboard */,
@@ -457,23 +484,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B59CF91E1C4D277300E09221 /* ACSocketService.m in Sources */,
-				B59CF9241C4D3D1400E09221 /* ACCommandService.m in Sources */,
 				B59CF9181C4D271A00E09221 /* GCDAsyncSocket.m in Sources */,
-				B52635741C746FA0000BAD40 /* ACCommandObject.m in Sources */,
+				B52635861C75672C000BAD40 /* ACCommandService.m in Sources */,
 				B59CF9171C4D271A00E09221 /* README.markdown in Sources */,
 				B59CF91B1C4D271A00E09221 /* AsyncUdpSocket.m in Sources */,
-				B59CF9211C4D344000E09221 /* ACSocketObject.m in Sources */,
 				B59CF8DA1C4D254000E09221 /* ViewController.m in Sources */,
+				B52635851C75672C000BAD40 /* ACCommandObject.m in Sources */,
 				B59CF9191C4D271A00E09221 /* GCDAsyncUdpSocket.m in Sources */,
-				E4FE93E01C4F497600B8372F /* ACSettingOptions.m in Sources */,
 				B59CF9561C513A1000E09221 /* NSObject+YYModel.m in Sources */,
 				B59CF8D71C4D254000E09221 /* AppDelegate.m in Sources */,
+				B52635871C75672C000BAD40 /* ACSettingOptions.m in Sources */,
+				B526358A1C75672C000BAD40 /* ACSocketService.m in Sources */,
+				B52635881C75672C000BAD40 /* ACSettings.m in Sources */,
 				B59CF8D41C4D254000E09221 /* main.m in Sources */,
-				E4FE93DD1C4F469000B8372F /* ACSettings.m in Sources */,
 				B59CF9571C513A1000E09221 /* YYClassInfo.m in Sources */,
+				B52635891C75672C000BAD40 /* ACSocketObject.m in Sources */,
 				B59CF91A1C4D271A00E09221 /* AsyncSocket.m in Sources */,
-				B5521A071C5B42CB001E6E96 /* ACMsgHandlerObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

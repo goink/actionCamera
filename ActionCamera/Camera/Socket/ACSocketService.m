@@ -169,23 +169,6 @@ static ACSocketService *socketService = nil;
     _datSocket.userData = SocketOfflineByUser;
 }
 
-- (void)sendCommandWithMsgID:(int)msg_id
-{
-    ACSocketObject *socObj = [ACSocketObject objectWithMsgID:msg_id];
-    ACCommandObject *obj = [ACCommandObject objectWithSocketObject:socObj success:nil failure:nil];
-    [self enQueue:obj];
-}
-- (void)sendCommandWithMsgID:(int)msg_id type:(NSString *)type
-{
-    ACSocketObject *obj = [ACSocketObject objectWithMsgID:msg_id type:type];
-    [self enQueue:obj];
-}
-- (void)sendCommandWithMsgID:(int)msg_id type:(NSString *)type param:(NSString *)param
-{
-    ACSocketObject *obj = [ACSocketObject objectWithMsgID:msg_id type:type param:param];
-    [self enQueue:obj];
-}
-
 
 #pragma mark - delegate
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
@@ -232,7 +215,7 @@ static ACSocketService *socketService = nil;
     }
     _cmdSocketData = nil;
     
-    NSLog(@"[recvMsg]:%ld bytes\n%@", data.length, dic);
+    NSLog(@"[recvMsg]:%ld bytes\n%@", (unsigned long)data.length, dic);
     
     NSString *msg_id = [NSString stringWithFormat:@"%d", [dic[@"msg_id"] intValue]];
 
@@ -274,7 +257,7 @@ static ACSocketService *socketService = nil;
     __weak typeof(self) weakSelf = self;
 
     NSString *msgID = [NSString stringWithFormat:@"%u", MSGID_START_SESSION];
-    [self addMessageIDProbe:msgID success:^(id responseObject) {
+    [self addObserverForMsgId:msgID success:^(id responseObject) {
         NSDictionary *dic = (NSDictionary *)responseObject;
         [ACSocketService sharedSocketService].tokenNumber = [dic[@"param"] intValue];
         
@@ -285,7 +268,7 @@ static ACSocketService *socketService = nil;
     }];
     
     msgID = [NSString stringWithFormat:@"%u", MSGID_GET_ALL_CURRENT_SETTINGS];
-    [self addMessageIDProbe:msgID success:^(id responseObject) {
+    [self addObserverForMsgId:msgID success:^(id responseObject) {
         NSDictionary *dic = (NSDictionary *)responseObject;
         NSArray *settings = dic[@"param"];
         weakSelf.settings = [[ACSettings alloc] initWithArray:settings];
@@ -300,7 +283,7 @@ static ACSocketService *socketService = nil;
 }
 
 #pragma mark - system msg id handler register
-- (void)addMessageIDProbe:(NSString *)msg_id
+- (void)addObserverForMsgId:(NSString *)msg_id
                   success:(void (^)(id responseObject))success
                   failure:(void (^)(id errorObject))failure
 {
