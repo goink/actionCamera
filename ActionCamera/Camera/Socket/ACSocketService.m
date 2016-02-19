@@ -264,7 +264,28 @@ static ACSocketService *socketService = nil;
     [self addObserverForMsgId:msgID success:^(id responseObject) {
         NSDictionary *dic = (NSDictionary *)responseObject;
         [ACSocketService sharedSocketService].tokenNumber = [dic[@"param"] intValue];
+        
+        NSString *model = [dic[@"model"] uppercaseString];
+        if (model && [model isEqualToString:@"Z16"]) {
+            //z16 及后续产品
+            [CameraHAM shared].model = model;
+            [CameraHAM shared].isZ16 = YES;
+            [CameraHAM shared].isZ13 = NO;
+        } else {
+            [CameraHAM shared].model = @"Z13";
+            [CameraHAM shared].isZ16 = NO;
+            [CameraHAM shared].isZ13 = YES;
+        }
+        
+        NSString *rtsp = dic[@"rtsp"];
+        if (rtsp) {
+            [CameraHAM shared].rtsp = rtsp;
+        } else {
+            [CameraHAM shared].rtsp = CAMERA_IP_RTSP;
+        }
+        
         [ACCommandService getAllCurrentSettings];
+        
     } failure:^(id errorObject) {
         
     }];

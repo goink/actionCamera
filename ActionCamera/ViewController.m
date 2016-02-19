@@ -13,7 +13,7 @@
 #import <MobileVLCKit/MobileVLCKit.h>
 #import "Camera/CameraHAM.h"
 
-@interface ViewController () <VLCMediaPlayerDelegate>
+@interface ViewController () <VLCMediaPlayerDelegate, CameraHAMDelegate>
 @property (nonatomic, strong) ACSocketService *socketService;
 @property (nonatomic, strong) UIView *playView;
 @property (nonatomic, strong) VLCMediaListPlayer *mediaPlayer;
@@ -46,9 +46,6 @@
     
     [self setupMediaPlayer];
     
-//    self.socketService = [ACSocketService sharedSocketService];
-//    
-//    [ACCommandService startCommandSocketSession];
 }
 
 - (void)setupMediaPlayer
@@ -77,11 +74,13 @@
        
     }
 }
+
 - (void)hello
 {
     ACSettingOptions *options = [CameraHAM shared].settingOptions;
     NSLog(@"options:%@", options);
 }
+
 - (void)videoResolutionGettingTest
 {
     NSString *propertyName = getSettingName(video_resolution);
@@ -111,4 +110,8 @@
     [ACCommandService getSettingWithType:type];
 }
 
+- (void)cameraHAM:(CameraHAM *)cameraHAM state:(NSString *)state
+{
+    
+}
 @end

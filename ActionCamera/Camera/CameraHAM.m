@@ -35,7 +35,7 @@ static CameraHAM *actionCamera = nil;
     return actionCamera;
 }
 
-+(id)allocWithZone:(NSZone *)zone
++ (id)allocWithZone:(NSZone *)zone
 {
     @synchronized(self)
     {
