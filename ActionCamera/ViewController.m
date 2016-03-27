@@ -114,4 +114,9 @@
 {
     
 }
+- (void)mediaPlayerStateChanged:(NSNotification *)aNotification
+{
+    VLCMediaPlayer *player = (VLCMediaPlayer *)aNotification.object;
+    NSLog(@"state:%@", VLCMediaPlayerStateToString(player.state));
+}
 @end
