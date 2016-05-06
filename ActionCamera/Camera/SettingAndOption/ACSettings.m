@@ -84,12 +84,18 @@
     return _properties;
 }
 
-- (void)setValue:(id)value for:(NSString *)key
+- (void)setValue:(id)value forSetting:(NSString *)key
 {
+    NSLog(@"Settings: set %@ with %@", key, value);
+    
     if ([self containsOf:key]) {
         [self setValue:value forKey:key];
     }
+    else {
+        NSLog(@"property %@ not exist.", key);
+    }
 }
+
 - (NSString *)description
 {
     NSMutableString *mutString = [[NSMutableString alloc] init];

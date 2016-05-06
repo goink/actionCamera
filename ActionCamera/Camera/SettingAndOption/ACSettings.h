@@ -28,14 +28,14 @@
 @property (strong, nonatomic) NSString *capture_default_mode; // "precise quality cont.";
 @property (strong, nonatomic) NSString *precise_cont_time; // "2.0 sec";
 @property (strong, nonatomic) NSString *burst_capture_number; // "7 p / 2s";
-@property (strong, nonatomic) NSString *wifi_ssid; // 0007000;
-@property (strong, nonatomic) NSString *wifi_password; // 1234567890;
+@property (strong, nonatomic) NSString *wifi_ssid; // ;
+@property (strong, nonatomic) NSString *wifi_password; // ;
 @property (strong, nonatomic) NSString *led_mode; // "all enable";
 @property (strong, nonatomic) NSString *meter_mode; // center;
 @property (strong, nonatomic) NSString *sd_card_status; // insert;
 @property (strong, nonatomic) NSString *video_output_dev_type; // tv;
-@property (strong, nonatomic) NSString *sw_version; // "YDXJv22L_1.2.13_build-20150906142851_b1049_i841_s1120"
-@property (strong, nonatomic) NSString *hw_version; // "YDXJ_v23L";
+@property (strong, nonatomic) NSString *sw_version; // ""
+@property (strong, nonatomic) NSString *hw_version; // "";
 @property (strong, nonatomic) NSString *dual_stream_status; // on;
 @property (strong, nonatomic) NSString *streaming_status; // off;
 @property (strong, nonatomic) NSString *precise_cont_capturing; // off;
@@ -47,7 +47,7 @@
 @property (strong, nonatomic) NSString *precise_selftime; // 3s;
 @property (strong, nonatomic) NSString *precise_self_running; // off;
 @property (strong, nonatomic) NSString *auto_power_off; // off;
-@property (strong, nonatomic) NSString *serial_number; // Z23L534A3394765;
+@property (strong, nonatomic) NSString *serial_number; // ;
 @property (strong, nonatomic) NSString *system_mode; // capture;
 @property (strong, nonatomic) NSString *system_default_mode; // capture;
 @property (strong, nonatomic) NSString *start_wifi_while_booted; // on;
@@ -87,8 +87,11 @@
 @property (strong, nonatomic) NSString *dewarp_support_status; // off
 @property (strong, nonatomic) NSString *eis_support_status; // off
 @property (strong, nonatomic) NSString *video_mute_set; // on
+@property (strong, nonatomic) NSString *product_name; //
 
 - (instancetype)initWithArray:(NSArray *)settingDics;
 - (void)reset;
+
+- (void)setValue:(id)value forSetting:(NSString *)key;
 
 @end

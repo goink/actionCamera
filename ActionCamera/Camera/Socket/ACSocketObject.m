@@ -11,6 +11,19 @@
 
 @implementation ACSocketObject
 
++ (instancetype)objectWithMsgID:(int)msg_id type:(NSString *)type param:(NSString *)param path:(NSString *)path
+{
+    ACSocketObject *m = [[ACSocketObject alloc] init];
+    if (m) {
+        m.msg_id = msg_id;
+        m.type = type;
+        m.param = param;
+        m.path = path;
+        m.token = [ACSocketService shared].tokenNumber;
+    }
+    return m;
+}
+
 + (instancetype)objectWithMsgID:(int)msg_id type:(NSString *)type param:(NSString *)param token:(int)token
 {
     ACSocketObject *m = [[ACSocketObject alloc] init];
@@ -22,19 +35,22 @@
     }
     return m;
 }
+
 + (instancetype)objectWithMsgID:(int)msg_id type:(NSString *)type param:(NSString *)param
 {
-    ACSocketObject *m = [ACSocketObject objectWithMsgID:msg_id type:type param:param token:[ACSocketService sharedSocketService].tokenNumber];
+    ACSocketObject *m = [ACSocketObject objectWithMsgID:msg_id type:type param:param token:[ACSocketService shared].tokenNumber];
     return m;
 }
+
 + (instancetype)objectWithMsgID:(int)msg_id type:(NSString *)type
 {
-    ACSocketObject *m = [ACSocketObject objectWithMsgID:msg_id type:type param:nil token:[ACSocketService sharedSocketService].tokenNumber];
+    ACSocketObject *m = [ACSocketObject objectWithMsgID:msg_id type:type param:nil token:[ACSocketService shared].tokenNumber];
     return m;
 }
+
 + (instancetype)objectWithMsgID:(int)msg_id
 {
-    ACSocketObject *m = [ACSocketObject objectWithMsgID:msg_id type:nil param:nil token:[ACSocketService sharedSocketService].tokenNumber];
+    ACSocketObject *m = [ACSocketObject objectWithMsgID:msg_id type:nil param:nil token:[ACSocketService shared].tokenNumber];
     return m;
 }
 @end

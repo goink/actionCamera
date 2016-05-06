@@ -38,47 +38,37 @@
     UIButton *buttonw = [[UIButton alloc] init];
     buttonw.bounds = CGRectMake(0, 0, 200, 48);
     buttonw.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height-100);
-    [buttonw setTitle:@"Push Stream to KSY" forState:UIControlStateNormal];
+    [buttonw setTitle:@"Push Stream" forState:UIControlStateNormal];
     [buttonw setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [buttonw setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     [buttonw addTarget:self action:@selector(hello) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:buttonw];
     
-    [self setupMediaPlayer];
-    
-}
-
-- (void)setupMediaPlayer
-{
     UIView *playView = [UIView new];
     playView.frame = CGRectMake(0, 50, self.view.frame.size.width, 250);
     playView.backgroundColor = [UIColor blueColor];
     _playView = playView;
     [self.view addSubview:playView];
+
+    [[CameraHAM shared] attachCameraPreViewTo:_playView];
     
-    _mediaPlayer = [[VLCMediaListPlayer alloc] initWithOptions:@[@"--noaudio",@"--no-video-title-show",@"--quiet"]];
-    _mediaPlayer.mediaPlayer.delegate = self;
-    _mediaPlayer.mediaPlayer.drawable = _playView;
-    _mediaPlayer.repeatMode = VLCRepeatAllItems;
-    VLCMedia *media = [VLCMedia mediaWithURL:[NSURL URLWithString:CAMERA_IP_RTSP]];
-    VLCMediaList *list = [[VLCMediaList alloc] initWithArray:@[media]];
-    _mediaPlayer.mediaList = list;
 }
 
 - (void)buttonClick
 {
     if ([[CameraHAM shared] isCameraWiFiConnected]) {
-        [_mediaPlayer play];
-        [self videoResolutionGettingTest];
-        [self cameraClockSettingTest];
-       
+        [ACCommandService startCommandSocketSession];
     }
 }
 
 - (void)hello
 {
-    ACSettingOptions *options = [CameraHAM shared].settingOptions;
-    NSLog(@"options:%@", options);
+    if ([CameraHAM shared].isReady) {
+        ACSettingOptions *options = [CameraHAM shared].settingOptions;
+        NSLog(@"options:%@", options);
+        [[CameraHAM shared] resetVideoFlow];
+        [[CameraHAM shared] preViewPlay];
+    }
 }
 
 - (void)videoResolutionGettingTest

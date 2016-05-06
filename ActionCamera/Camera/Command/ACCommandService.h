@@ -18,14 +18,27 @@
 + (void)setSettingWithType:(NSString *)type param:(NSString *)param;
 + (void)getSettingWithType:(NSString *)type;
 + (void)resetVideoFlow;
-+ (void)getOptionsList;
++ (void)stopVideoFlow;
++ (void)syncCameraClock;
++ (void)getOptionsListPhase1;
++ (void)getOptionsListPhase2;
++ (void)getVideoResolutionsListForce;
++ (void)getBatteryStatus;
++ (void)getPIVSupport;
++ (void)getAutoLowLightSupport;
++ (void)quitIdelSendMsg_Id;
++ (void)syncCameraParams;
++ (void)setClientinfo;
+
++ (void)syncCameraClockWithSuccess:(void (^)(id responseObject))success
+                           failure:(void (^)(id error))failure;
 
 + (void)execute:(int)msgid
          params:(NSDictionary *)params
         success:(void (^)(id responseObject))success
-        failure:(void (^)(NSError *error))failure;
+        failure:(void (^)(id error))failure;
 
 + (void) listen:(int)msgid
         success:(void (^)(id responseObject))success
-        failure:(void (^)(NSError *error))failure;
+        failure:(void (^)(id error))failure;
 @end

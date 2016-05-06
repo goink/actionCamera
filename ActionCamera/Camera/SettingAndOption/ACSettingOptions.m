@@ -8,12 +8,18 @@
 
 #import "ACSettingOptions.h"
 #import <objc/runtime.h>
+#import "CameraHAM.h"
 
-@interface ACSettingOptions ()
+@interface ACSettingOptions () <NSCopying>
 @property (strong, nonatomic) NSMutableDictionary *properties;
 @end
 
 @implementation ACSettingOptions
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
 - (instancetype)init
 {
     if (self = [super init]) {
@@ -21,15 +27,14 @@
     }
     
     self.video_stamp                    = [NSArray arrayWithObjects:@"off", @"date", @"time", @"date/time", nil];
-    self.timelapse_video                = [NSArray arrayWithObjects:@"0.5", @"1", @"2", @"5", @"10", @"30", @"60", nil];
-    self.timelapse_duration             = [NSArray arrayWithObjects:@"off", @"6s", @"8s", @"10s", @"20s", @"30s", @"60s", @"120s",nil];
+    self.timelapse_video                = [NSArray arrayWithObjects:@"0.5", @"1", @"2", @"5", @"10", @"30", @"60", nil];//延时摄像时间间隔,second
+    self.timelapse_video_duration       = [NSArray arrayWithObjects:@"off", @"6s", @"8s", @"10s", @"20s", @"30s", @"60s", @"120s",nil];//延时摄像拍摄视频长度
     self.video_photo                    = [NSArray arrayWithObjects:@"5", @"10", @"30", @"60",nil];
     self.video_quality                  = [NSArray arrayWithObjects:@"S.Fine", @"Fine", @"Normal", nil];
     self.photo_stamp                    = [NSArray arrayWithObjects:@"off", @"date", @"time", @"date/time", nil];
     self.video_standard                 = [NSArray arrayWithObjects:@"NTSC", @"PAL", nil];
+    self.meter_mode                     = nil;//[NSArray arrayWithObjects:@"center", @"spot", nil];
     self.buzzer_volume                  = [NSArray arrayWithObjects:@"high", @"low", @"mute", nil];
-    self.default_record_mode            = [NSArray arrayWithObjects:@"record", @"record_timelapse", @"record_photo", nil];
-    self.capture_default_mode           = [NSArray arrayWithObjects:@"precise quality", @"precise quality cont.", @"precise self quality", @"burst quality", nil];
     self.precise_cont_time              = [NSArray arrayWithObjects:@"0.5 sec", @"1.0 sec", @"2.0 sec", @"5.0 sec", @"10.0 sec", @"30.0 sec", @"60.0 sec", nil];
     self.precise_selftime               = [NSArray arrayWithObjects:@"3s",@"5s",@"10s",@"15s", nil];
     self.video_output_dev_type          = [NSArray arrayWithObjects:@"hdmi", @"tv", @"off", nil];
@@ -57,13 +62,23 @@
     self.iq_photo_iso                   = [NSArray arrayWithObjects:@"auto", @"100", @"200", @"400", @"800", nil];
     self.iq_photo_wb                    = [NSArray arrayWithObjects:@"auto", @"native", @"3000k", @"5500k", @"6500k", nil];
     self.iq_photo_shutter               = [NSArray arrayWithObjects:@"auto", @"2s", @"5s", @"10s", @"20s", @"30s", nil];
+
+    self.slow_motion_rate               = [NSArray arrayWithObjects:@"2", @"4", @"8", nil];
+    self.slow_motion_resolution         = [NSArray arrayWithObjects:@"1280x720 60P 16:9", @"1280x720 120P 16:9", @"1280x720 240P 16:9",nil];
+    self.slow_motion_resolution_pal     = [NSArray arrayWithObjects:@"1280x720 50P 16:9", @"1280x720 100P 16:9", @"1280x720 200P 16:9",nil];
+
+    self.record_photo_time              = [NSArray arrayWithObjects:@"5",@"10",@"30",@"60", nil];//second
+    self.loop_rec_duration              = [NSArray arrayWithObjects:@"5 minutes", @"20 minutes", @"60 minutes", @"120 minutes", @"max", nil];
+
+    //在startSession回调中会根据相机型号重新初始化，此处初始化被忽略
+    self.default_record_mode            = [NSArray arrayWithObjects:@"record", @"record_timelapse", @"record_slow_motion", @"record_loop", @"record_photo", nil];
+    self.capture_default_mode           = [NSArray arrayWithObjects:@"precise quality", @"precise quality cont.", @"precise self quality", @"burst quality", nil];
+    self.system_default_mode            = [NSArray arrayWithObjects:@"capture", @"record", nil];
     
     self.burst_capture_number           = nil;
-    self.meter_mode                     = nil;
+    
     self.video_photo_resolution         = nil;
-    self.video_photo_time               = nil;
-    self.loop_rec_duration              = nil;
-    self.system_default_mode            = nil;
+    
     self.photo_size                     = nil;
     self.timelapse_video_resolution     = nil;
     self.timelapse_video_resolution_pal = nil;
@@ -72,14 +87,38 @@
     return self;
 }
 
+- (NSArray *)slow_motion_resolution
+{
+    if ([[CameraHAM shared] isVideoStandardNTSC]) {
+        return _slow_motion_resolution;
+    } else {
+        return _slow_motion_resolution_pal;
+    }
+}
+
+- (NSArray *)meter_mode
+{
+    if ([CameraHAM shared].isZ16) {
+        return [NSArray arrayWithObjects:@"center", @"spot", nil];
+    } else {
+        return [NSArray arrayWithObjects:@"center", @"spot", @"average", nil];
+    }
+}
 - (void)setValue:(NSString *)name withOptions:(NSArray *)options
 {
-    if (!name || !options) return;
+    if (!name || !options) {
+        NSLog(@"name or option is null");
+        return;
+    }
     
     if ([self containsOf:name]) {
         [self setValue:options forKey:name];
     }
+    else {
+        NSLog(@"%@ not defined.", name);
+    }
 }
+
 - (BOOL)containsOf:(NSString *)key
 {
     if (!key) return NO;

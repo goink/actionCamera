@@ -12,7 +12,7 @@
 @property(nonatomic,strong) NSArray *video_resolution;
 @property(nonatomic,strong) NSArray *video_stamp;
 @property(nonatomic,strong) NSArray *timelapse_video;
-@property(nonatomic,strong) NSArray *timelapse_duration;
+@property(nonatomic,strong) NSArray *timelapse_video_duration;
 @property(nonatomic,strong) NSArray *timelapse_video_resolution;
 @property(nonatomic,strong) NSArray *timelapse_video_resolution_pal;
 @property(nonatomic,strong) NSArray *video_photo;
@@ -55,6 +55,13 @@
 @property(nonatomic,strong) NSArray *video_photo_resolution;
 @property(nonatomic,strong) NSArray *video_photo_time;
 @property(nonatomic,strong) NSArray *loop_rec_duration;
+
+@property(nonatomic,strong) NSArray *slow_motion_rate;
+@property(nonatomic,strong) NSArray *slow_motion_resolution;
+@property(nonatomic,strong) NSArray *slow_motion_resolution_pal;
+
+@property(nonatomic,strong) NSArray *record_photo_time;
+
 
 - (void)setValue:(NSString *)name withOptions:(NSArray *)options;
 

@@ -22,24 +22,27 @@
 		B59CF8E51C4D254000E09221 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59CF8E31C4D254000E09221 /* LaunchScreen.storyboard */; };
 		B59CF8F01C4D254000E09221 /* ActionCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8EF1C4D254000E09221 /* ActionCameraTests.m */; };
 		B59CF8FB1C4D254000E09221 /* ActionCameraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF8FA1C4D254000E09221 /* ActionCameraUITests.m */; };
-		B59CF9171C4D271A00E09221 /* README.markdown in Sources */ = {isa = PBXBuildFile; fileRef = B59CF90A1C4D271A00E09221 /* README.markdown */; };
-		B59CF9181C4D271A00E09221 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF90F1C4D271A00E09221 /* GCDAsyncSocket.m */; };
-		B59CF9191C4D271A00E09221 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9111C4D271A00E09221 /* GCDAsyncUdpSocket.m */; };
-		B59CF91A1C4D271A00E09221 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9141C4D271A00E09221 /* AsyncSocket.m */; };
-		B59CF91B1C4D271A00E09221 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9161C4D271A00E09221 /* AsyncUdpSocket.m */; };
-		B59CF9561C513A1000E09221 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9531C513A1000E09221 /* NSObject+YYModel.m */; };
-		B59CF9571C513A1000E09221 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B59CF9551C513A1000E09221 /* YYClassInfo.m */; };
 		B59CF9591C53C5EF00E09221 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF9581C53C5EF00E09221 /* MobileVLCKit.framework */; };
 		B59CF9611C53D17400E09221 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF9601C53D17400E09221 /* libbz2.tbd */; };
 		B59CF9631C53D18800E09221 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF9621C53D18800E09221 /* libiconv.tbd */; };
 		B59CF9711C53D44700E09221 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF9701C53D44700E09221 /* AudioToolbox.framework */; };
 		B59CF9721C53D49C00E09221 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF95E1C53D15000E09221 /* libstdc++.6.0.9.tbd */; };
+		B59D5C4F1CDCDECA00B6661E /* ACModeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D5C4A1CDCDECA00B6661E /* ACModeObject.m */; };
+		B59D5C501CDCDECA00B6661E /* BatteryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D5C4C1CDCDECA00B6661E /* BatteryObject.m */; };
+		B59D5C511CDCDECA00B6661E /* SettingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D5C4E1CDCDECA00B6661E /* SettingObject.m */; };
+		B59D5C5A1CDCDF2D00B6661E /* ColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D5C551CDCDF2D00B6661E /* ColorHelper.m */; };
+		B59D5C5B1CDCDF2D00B6661E /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D5C571CDCDF2D00B6661E /* ImageHelper.m */; };
+		B59D5C5C1CDCDF2D00B6661E /* StringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D5C591CDCDF2D00B6661E /* StringHelper.m */; };
+		B59D5C5F1CDCDF6900B6661E /* NSString+Case.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D5C5E1CDCDF6900B6661E /* NSString+Case.m */; };
+		B59D5C631CDCE44A00B6661E /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D5C621CDCE44A00B6661E /* JSONHelper.m */; };
+		B59D5C661CDCE9C800B6661E /* SystemInfoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D5C651CDCE9C800B6661E /* SystemInfoHelper.m */; };
 		B5C8AABD1C5F215200E2DBA8 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF96A1C53D21000E09221 /* VideoToolbox.framework */; };
 		B5C8AABF1C5F216A00E2DBA8 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C8AABE1C5F216A00E2DBA8 /* CoreVideo.framework */; };
 		B5C8AAC11C5F219A00E2DBA8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C8AAC01C5F219A00E2DBA8 /* ImageIO.framework */; };
 		B5C8AAC31C5F221000E2DBA8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C8AAC21C5F221000E2DBA8 /* AVFoundation.framework */; };
 		B5C8AACC1C5F243B00E2DBA8 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59CF9681C53D1F000E09221 /* CoreAudio.framework */; };
 		B5C8AACE1C5F247700E2DBA8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C8AACD1C5F247700E2DBA8 /* CoreMedia.framework */; };
+		DF1F41125F550CBF92664F03 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3656DFC9FEB6AE0D3ABE491C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3656DFC9FEB6AE0D3ABE491C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		74593FD30E19863BA4F22A0D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8DAAB4F7934AD5CF2078A6DB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B52635771C75672C000BAD40 /* ACCommandObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCommandObject.h; sourceTree = "<group>"; };
 		B52635781C75672C000BAD40 /* ACCommandObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACCommandObject.m; sourceTree = "<group>"; };
 		B52635791C75672C000BAD40 /* ACCommandService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCommandService.h; sourceTree = "<group>"; };
@@ -90,20 +96,6 @@
 		B59CF8F61C4D254000E09221 /* ActionCameraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActionCameraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59CF8FA1C4D254000E09221 /* ActionCameraUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionCameraUITests.m; sourceTree = "<group>"; };
 		B59CF8FC1C4D254000E09221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B59CF90A1C4D271A00E09221 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
-		B59CF90C1C4D271A00E09221 /* CocoaAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaAsyncSocket.h; sourceTree = "<group>"; };
-		B59CF90E1C4D271A00E09221 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
-		B59CF90F1C4D271A00E09221 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
-		B59CF9101C4D271A00E09221 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
-		B59CF9111C4D271A00E09221 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
-		B59CF9131C4D271A00E09221 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
-		B59CF9141C4D271A00E09221 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
-		B59CF9151C4D271A00E09221 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
-		B59CF9161C4D271A00E09221 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
-		B59CF9521C513A1000E09221 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
-		B59CF9531C513A1000E09221 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
-		B59CF9541C513A1000E09221 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
-		B59CF9551C513A1000E09221 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
 		B59CF9581C53C5EF00E09221 /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
 		B59CF95A1C53D0FB00E09221 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		B59CF95C1C53D11C00E09221 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -117,11 +109,30 @@
 		B59CF96C1C53D27900E09221 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B59CF96E1C53D39900E09221 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B59CF9701C53D44700E09221 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B59D5C491CDCDECA00B6661E /* ACModeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACModeObject.h; sourceTree = "<group>"; };
+		B59D5C4A1CDCDECA00B6661E /* ACModeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACModeObject.m; sourceTree = "<group>"; };
+		B59D5C4B1CDCDECA00B6661E /* BatteryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryObject.h; sourceTree = "<group>"; };
+		B59D5C4C1CDCDECA00B6661E /* BatteryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryObject.m; sourceTree = "<group>"; };
+		B59D5C4D1CDCDECA00B6661E /* SettingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingObject.h; sourceTree = "<group>"; };
+		B59D5C4E1CDCDECA00B6661E /* SettingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingObject.m; sourceTree = "<group>"; };
+		B59D5C541CDCDF2D00B6661E /* ColorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorHelper.h; sourceTree = "<group>"; };
+		B59D5C551CDCDF2D00B6661E /* ColorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorHelper.m; sourceTree = "<group>"; };
+		B59D5C561CDCDF2D00B6661E /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
+		B59D5C571CDCDF2D00B6661E /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
+		B59D5C581CDCDF2D00B6661E /* StringHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHelper.h; sourceTree = "<group>"; };
+		B59D5C591CDCDF2D00B6661E /* StringHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHelper.m; sourceTree = "<group>"; };
+		B59D5C5D1CDCDF6900B6661E /* NSString+Case.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Case.h"; sourceTree = "<group>"; };
+		B59D5C5E1CDCDF6900B6661E /* NSString+Case.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Case.m"; sourceTree = "<group>"; };
+		B59D5C601CDCE1D900B6661E /* ACDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACDefines.h; sourceTree = "<group>"; };
+		B59D5C611CDCE44A00B6661E /* JSONHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHelper.h; sourceTree = "<group>"; };
+		B59D5C621CDCE44A00B6661E /* JSONHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHelper.m; sourceTree = "<group>"; };
+		B59D5C641CDCE9C800B6661E /* SystemInfoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfoHelper.h; sourceTree = "<group>"; };
+		B59D5C651CDCE9C800B6661E /* SystemInfoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemInfoHelper.m; sourceTree = "<group>"; };
+		B59D5C671CDCF78200B6661E /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		B5C8AABE1C5F216A00E2DBA8 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		B5C8AAC01C5F219A00E2DBA8 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		B5C8AAC21C5F221000E2DBA8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B5C8AACD1C5F247700E2DBA8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		E4FE93DA1C4F231E00B8372F /* ACDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACDefines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +151,7 @@
 				B59CF9631C53D18800E09221 /* libiconv.tbd in Frameworks */,
 				B59CF9611C53D17400E09221 /* libbz2.tbd in Frameworks */,
 				B59CF9591C53C5EF00E09221 /* MobileVLCKit.framework in Frameworks */,
+				DF1F41125F550CBF92664F03 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,14 +172,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		686F04257B4DD23142A41E49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3656DFC9FEB6AE0D3ABE491C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A081641416C9C2A4CFE9D7B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				74593FD30E19863BA4F22A0D /* Pods.debug.xcconfig */,
+				8DAAB4F7934AD5CF2078A6DB /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B52635751C75672C000BAD40 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				B59D5C601CDCE1D900B6661E /* ACDefines.h */,
 				B526358B1C756AD2000BAD40 /* CameraHAM.h */,
 				B526358C1C756AD2000BAD40 /* CameraHAM.m */,
 				B52635801C75672C000BAD40 /* Socket */,
 				B52635761C75672C000BAD40 /* Command */,
 				B526357B1C75672C000BAD40 /* SettingAndOption */,
+				B59D5C481CDCDECA00B6661E /* Model */,
+				B59D5C531CDCDF2D00B6661E /* Helper */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -212,6 +244,8 @@
 				B59CF8EE1C4D254000E09221 /* ActionCameraTests */,
 				B59CF8F91C4D254000E09221 /* ActionCameraUITests */,
 				B59CF8D01C4D254000E09221 /* Products */,
+				A081641416C9C2A4CFE9D7B1 /* Pods */,
+				686F04257B4DD23142A41E49 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -228,7 +262,6 @@
 		B59CF8D11C4D254000E09221 /* ActionCamera */ = {
 			isa = PBXGroup;
 			children = (
-				E4FE93DA1C4F231E00B8372F /* ACDefines.h */,
 				B59CF8D51C4D254000E09221 /* AppDelegate.h */,
 				B59CF8D61C4D254000E09221 /* AppDelegate.m */,
 				B59CF8D81C4D254000E09221 /* ViewController.h */,
@@ -238,7 +271,7 @@
 				B59CF8E11C4D254000E09221 /* Assets.xcassets */,
 				B59CF8E31C4D254000E09221 /* LaunchScreen.storyboard */,
 				B59CF8E61C4D254000E09221 /* Info.plist */,
-				B59CF9081C4D271A00E09221 /* Libs */,
+				B59D5C671CDCF78200B6661E /* Defines.h */,
 				B59CF8D21C4D254000E09221 /* Supporting Files */,
 			);
 			path = ActionCamera;
@@ -271,68 +304,6 @@
 			path = ActionCameraUITests;
 			sourceTree = "<group>";
 		};
-		B59CF9081C4D271A00E09221 /* Libs */ = {
-			isa = PBXGroup;
-			children = (
-				B59CF9511C513A1000E09221 /* Model */,
-				B59CF9091C4D271A00E09221 /* CocoaAsyncSocket */,
-			);
-			path = Libs;
-			sourceTree = "<group>";
-		};
-		B59CF9091C4D271A00E09221 /* CocoaAsyncSocket */ = {
-			isa = PBXGroup;
-			children = (
-				B59CF90A1C4D271A00E09221 /* README.markdown */,
-				B59CF90B1C4D271A00E09221 /* Source */,
-			);
-			path = CocoaAsyncSocket;
-			sourceTree = "<group>";
-		};
-		B59CF90B1C4D271A00E09221 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				B59CF90C1C4D271A00E09221 /* CocoaAsyncSocket.h */,
-				B59CF90D1C4D271A00E09221 /* GCD */,
-				B59CF9121C4D271A00E09221 /* RunLoop */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		B59CF90D1C4D271A00E09221 /* GCD */ = {
-			isa = PBXGroup;
-			children = (
-				B59CF90E1C4D271A00E09221 /* GCDAsyncSocket.h */,
-				B59CF90F1C4D271A00E09221 /* GCDAsyncSocket.m */,
-				B59CF9101C4D271A00E09221 /* GCDAsyncUdpSocket.h */,
-				B59CF9111C4D271A00E09221 /* GCDAsyncUdpSocket.m */,
-			);
-			path = GCD;
-			sourceTree = "<group>";
-		};
-		B59CF9121C4D271A00E09221 /* RunLoop */ = {
-			isa = PBXGroup;
-			children = (
-				B59CF9131C4D271A00E09221 /* AsyncSocket.h */,
-				B59CF9141C4D271A00E09221 /* AsyncSocket.m */,
-				B59CF9151C4D271A00E09221 /* AsyncUdpSocket.h */,
-				B59CF9161C4D271A00E09221 /* AsyncUdpSocket.m */,
-			);
-			path = RunLoop;
-			sourceTree = "<group>";
-		};
-		B59CF9511C513A1000E09221 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B59CF9521C513A1000E09221 /* NSObject+YYModel.h */,
-				B59CF9531C513A1000E09221 /* NSObject+YYModel.m */,
-				B59CF9541C513A1000E09221 /* YYClassInfo.h */,
-				B59CF9551C513A1000E09221 /* YYClassInfo.m */,
-			);
-			name = Model;
-			path = ../Model;
-			sourceTree = "<group>";
-		};
 		B59CF9731C53D61A00E09221 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +329,38 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		B59D5C481CDCDECA00B6661E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B59D5C491CDCDECA00B6661E /* ACModeObject.h */,
+				B59D5C4A1CDCDECA00B6661E /* ACModeObject.m */,
+				B59D5C4B1CDCDECA00B6661E /* BatteryObject.h */,
+				B59D5C4C1CDCDECA00B6661E /* BatteryObject.m */,
+				B59D5C4D1CDCDECA00B6661E /* SettingObject.h */,
+				B59D5C4E1CDCDECA00B6661E /* SettingObject.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B59D5C531CDCDF2D00B6661E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B59D5C5D1CDCDF6900B6661E /* NSString+Case.h */,
+				B59D5C5E1CDCDF6900B6661E /* NSString+Case.m */,
+				B59D5C541CDCDF2D00B6661E /* ColorHelper.h */,
+				B59D5C551CDCDF2D00B6661E /* ColorHelper.m */,
+				B59D5C561CDCDF2D00B6661E /* ImageHelper.h */,
+				B59D5C571CDCDF2D00B6661E /* ImageHelper.m */,
+				B59D5C581CDCDF2D00B6661E /* StringHelper.h */,
+				B59D5C591CDCDF2D00B6661E /* StringHelper.m */,
+				B59D5C611CDCE44A00B6661E /* JSONHelper.h */,
+				B59D5C621CDCE44A00B6661E /* JSONHelper.m */,
+				B59D5C641CDCE9C800B6661E /* SystemInfoHelper.h */,
+				B59D5C651CDCE9C800B6661E /* SystemInfoHelper.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -365,9 +368,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B59CF8FF1C4D254000E09221 /* Build configuration list for PBXNativeTarget "ActionCamera" */;
 			buildPhases = (
+				FF370BE8A622D88B0ADF0BF4 /* Check Pods Manifest.lock */,
 				B59CF8CB1C4D254000E09221 /* Sources */,
 				B59CF8CC1C4D254000E09221 /* Frameworks */,
 				B59CF8CD1C4D254000E09221 /* Resources */,
+				CFB9F4F41425B3A27680509B /* Embed Pods Frameworks */,
+				944BD32F825D364EEEC03170 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -484,28 +490,78 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		944BD32F825D364EEEC03170 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFB9F4F41425B3A27680509B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF370BE8A622D88B0ADF0BF4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B59CF8CB1C4D254000E09221 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B59CF9181C4D271A00E09221 /* GCDAsyncSocket.m in Sources */,
+				B59D5C5F1CDCDF6900B6661E /* NSString+Case.m in Sources */,
+				B59D5C631CDCE44A00B6661E /* JSONHelper.m in Sources */,
 				B52635861C75672C000BAD40 /* ACCommandService.m in Sources */,
-				B59CF9171C4D271A00E09221 /* README.markdown in Sources */,
-				B59CF91B1C4D271A00E09221 /* AsyncUdpSocket.m in Sources */,
+				B59D5C5C1CDCDF2D00B6661E /* StringHelper.m in Sources */,
 				B526358D1C756AD2000BAD40 /* CameraHAM.m in Sources */,
+				B59D5C4F1CDCDECA00B6661E /* ACModeObject.m in Sources */,
 				B59CF8DA1C4D254000E09221 /* ViewController.m in Sources */,
 				B52635851C75672C000BAD40 /* ACCommandObject.m in Sources */,
-				B59CF9191C4D271A00E09221 /* GCDAsyncUdpSocket.m in Sources */,
-				B59CF9561C513A1000E09221 /* NSObject+YYModel.m in Sources */,
+				B59D5C501CDCDECA00B6661E /* BatteryObject.m in Sources */,
+				B59D5C661CDCE9C800B6661E /* SystemInfoHelper.m in Sources */,
+				B59D5C5A1CDCDF2D00B6661E /* ColorHelper.m in Sources */,
+				B59D5C511CDCDECA00B6661E /* SettingObject.m in Sources */,
 				B59CF8D71C4D254000E09221 /* AppDelegate.m in Sources */,
 				B52635871C75672C000BAD40 /* ACSettingOptions.m in Sources */,
 				B526358A1C75672C000BAD40 /* ACSocketService.m in Sources */,
 				B52635881C75672C000BAD40 /* ACSettings.m in Sources */,
+				B59D5C5B1CDCDF2D00B6661E /* ImageHelper.m in Sources */,
 				B59CF8D41C4D254000E09221 /* main.m in Sources */,
-				B59CF9571C513A1000E09221 /* YYClassInfo.m in Sources */,
 				B52635891C75672C000BAD40 /* ACSocketObject.m in Sources */,
-				B59CF91A1C4D271A00E09221 /* AsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +702,7 @@
 		};
 		B59CF9001C4D254000E09221 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74593FD30E19863BA4F22A0D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -654,13 +711,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/ActionCamera/Libs/ffmpeg/include/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ActionCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ActionCamera/Libs/ffmpeg/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ActionCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -668,6 +722,7 @@
 		};
 		B59CF9011C4D254000E09221 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DAAB4F7934AD5CF2078A6DB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -676,13 +731,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/ActionCamera/Libs/ffmpeg/include/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ActionCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ActionCamera/Libs/ffmpeg/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ActionCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -12,12 +12,7 @@
 #import "ACSettings.h"
 #import "ACSettingOptions.h"
 #import "ACCommandObject.h"
-
-enum{
-    SocketOfflineByServer,
-    SocketOfflineByUser,
-    SocketOfflineByOffline,
-};
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 @protocol AsyncSocketDelegate;
 
@@ -26,10 +21,10 @@ enum{
 @property (nonatomic, strong) AsyncSocket *cmdSocket;
 @property (nonatomic, strong) AsyncSocket *datSocket;
 @property (nonatomic, assign) int         tokenNumber;
-//@property (strong, nonatomic) ACSettings  *settings;
-//@property (strong, nonatomic) ACSettingOptions *settingOptions;
 
-+ (ACSocketService *)sharedSocketService;
++ (ACSocketService *)shared;
+
+- (void)resetQueue;
 
 - (void)startCommandSocketSession;
 - (void)stopCommandSocketSession;
@@ -41,5 +36,16 @@ enum{
 - (void)sendCommandWithSocketObject:(ACSocketObject *)socketObj
                   success:(void (^)(id responseObject))success
                   failure:(void (^)(id errorObject))failure;
+
+
+- (void)listenOnNotification:(NSString *)notification
+                   forTarget:(id)target
+                     success:(void (^)(id responseObject))success
+                     failure:(void (^)(id errorObject))failure;
+
+- (void)removeListener:(NSObject *)notification forTarget:(id)target;
+
+#pragma mark - output for wapper
+- (void)handleCommandSocket:(AsyncSocket *)sock data:(NSData *)data tag:(long)tag;
 
 @end

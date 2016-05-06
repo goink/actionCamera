@@ -9,17 +9,28 @@
 #import "AppDelegate.h"
 #import "ACSocketService.h"
 #import "CameraHAM.h"
+#import "DDTTYLogger.h"
+#import "DDLogMacros.h"
+
+
+//static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+
 @interface AppDelegate ()
-@property (nonatomic, strong) ACSocketService *socketService;
 @property (nonatomic, strong) CameraHAM *cameraHAM;
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.socketService = [ACSocketService sharedSocketService];
+    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor redColor] backgroundColor:[UIColor clearColor] forFlag:DDLogFlagError];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor blueColor] backgroundColor:[UIColor clearColor] forFlag:DDLogFlagWarning];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor whiteColor] backgroundColor:[UIColor clearColor] forFlag:DDLogFlagInfo];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    
+    DDLogError(@"Broken sprocket detected! %lu", (unsigned long)ddLogLevel);
+    
     _cameraHAM = [CameraHAM shared];
     return YES;
 }
