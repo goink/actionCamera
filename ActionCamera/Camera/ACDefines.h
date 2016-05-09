@@ -87,6 +87,8 @@
 
 #define MSGID_SD_CAPACITY_COUNT          16777243
 
+#define MSGID_HEARTBEAT                  16777244
+
 
 #define momo ([ACSocketService sharedSocketService].allSettings)
 #define getSettingName(property) [[(@""#property) componentsSeparatedByString:@"."] lastObject];([CameraHAM shared].settings.property)
@@ -147,6 +149,13 @@ typedef NS_ENUM(NSUInteger, CameraAspectRatio) {
 
 #define NOTI_CAMERA_IS_READY @"noti_camera_isReady"
 #define NOTI_SYSTEM_NETWORK_CHANGED @"noti_system_network_changed"
+
+
+//心跳间隔时间
+#define HEARTBEAT_INTERVAL 5
+#define HEARTBEAT_ENABLE 1
+
+
 
 /**
  *  相机控制

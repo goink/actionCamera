@@ -46,7 +46,13 @@
 
 + (void)startSession
 {
+#if HEARTBEAT_ENABLE
+    ACSocketObject *socObj = [ACSocketObject objectWithMsgID:MSGID_START_SESSION heartbeat:@"1"];
+    [[ACSocketService shared] sendCommandWithSocketObject:socObj success:nil failure:nil];
+#else
     [ACCommandService execute:MSGID_START_SESSION params:nil success:nil failure:nil];
+#endif
+    
 }
 
 #pragma mark - 无回调快捷命令接口

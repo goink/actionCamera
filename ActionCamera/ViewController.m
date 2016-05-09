@@ -59,7 +59,7 @@
     [self.view addSubview:playView];
     [_playView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(self.view);
-        make.top.mas_equalTo(self.view).with.offset(40);
+        make.top.mas_equalTo(self.view).with.offset(20);
         make.height.mas_equalTo(self.view.mas_width).multipliedBy(0.75);
     }];
 
@@ -165,7 +165,7 @@
         [_playView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.right.mas_equalTo(self.view);
             make.height.mas_equalTo(_playView.mas_width).multipliedBy(3.0/4.0);
-            make.top.mas_equalTo(self.view).with.offset(40);
+            make.top.mas_equalTo(self.view).with.offset(20);
         }];
     }
     
@@ -183,7 +183,7 @@
     } else {
         [_playView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.right.mas_equalTo(self.view);
-            make.top.mas_equalTo(self.view).with.offset(40);
+            make.top.mas_equalTo(self.view).with.offset(20);
             make.height.mas_equalTo(self.view.mas_width).multipliedBy(0.75);
         }];
     }

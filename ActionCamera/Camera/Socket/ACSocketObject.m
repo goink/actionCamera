@@ -11,6 +11,17 @@
 
 @implementation ACSocketObject
 
++ (instancetype)objectWithMsgID:(int)msg_id heartbeat:(NSString *)heartbeat
+{
+    ACSocketObject *m = [[ACSocketObject alloc] init];
+    if (m) {
+        m.msg_id = msg_id;
+        m.heartbeat = heartbeat;
+        m.token = [ACSocketService shared].tokenNumber;
+    }
+    return m;
+}
+
 + (instancetype)objectWithMsgID:(int)msg_id type:(NSString *)type param:(NSString *)param path:(NSString *)path
 {
     ACSocketObject *m = [[ACSocketObject alloc] init];

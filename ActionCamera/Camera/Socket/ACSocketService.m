@@ -171,6 +171,7 @@ static ACSocketService *socketService = nil;
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.cmdSocket writeData:cmdData withTimeout:-1 tag:0];
+                [self resetHeartBeat];
             });
         
             NSLog(@"[sendMsg]-:%@", [_cmdObject.socketObject modelToJSONString]);
@@ -520,6 +521,7 @@ static ACSocketService *socketService = nil;
             [CameraHAM shared].isReady = YES;
             [CameraHAM shared].cameraStatus = CameraStatusNormal;
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_CAMERA_IS_READY object:nil];
+            [weakSelf enableHeartBeat];
         }
     } failure:^(id errorObject) {
         
@@ -631,34 +633,35 @@ static ACSocketService *socketService = nil;
 
 
 #pragma mark - 心跳启动停止
-//- (void)enableHeartBeat
-//{
-//    if (!_heartBeatTimer) {
-//        _heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:HEARTBEAT_INTERVAL target:self selector:@selector(heartBeatOperation) userInfo:nil repeats:YES];
-//    }
-//}
-//- (void)disableHeartBeat
-//{
-//    if (_heartBeatTimer) {
-//        [_heartBeatTimer invalidate];
-//        _heartBeatTimer = nil;
-//    }
-//}
-//- (void)resetHeartBeat
-//{
-//    if (_heartBeatTimer) {
-//        [_heartBeatTimer invalidate];
-//        _heartBeatTimer = nil;
-//        _heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:HEARTBEAT_INTERVAL target:self selector:@selector(heartBeatOperation) userInfo:nil repeats:YES];
-//    }
-//}
-//- (void)heartBeatOperation
-//{
-//    if ([CameraHAM shared].isZ16) {
+- (void)enableHeartBeat
+{
+    if (!_heartBeatTimer) {
+        _heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:HEARTBEAT_INTERVAL target:self selector:@selector(heartBeatOperation) userInfo:nil repeats:YES];
+    }
+}
+- (void)disableHeartBeat
+{
+    if (_heartBeatTimer) {
+        [_heartBeatTimer invalidate];
+        _heartBeatTimer = nil;
+    }
+}
+- (void)resetHeartBeat
+{
+    if (_heartBeatTimer) {
+        [_heartBeatTimer invalidate];
+        _heartBeatTimer = nil;
+        _heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:HEARTBEAT_INTERVAL target:self selector:@selector(heartBeatOperation) userInfo:nil repeats:YES];
+    }
+}
+- (void)heartBeatOperation
+{
+    if ([CameraHAM shared].isZ16) {
 //        [LGSendCommandHandler triggerHeartBeat];
-//    }
-//    
-//}
+        [ACCommandService execute:MSGID_HEARTBEAT params:nil success:nil failure:nil];
+    }
+    
+}
 
 
 @end
