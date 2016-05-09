@@ -54,6 +54,8 @@
 @property (nonatomic, strong) NSMutableDictionary *failureHanlders;
 @property (nonatomic, strong) NSMutableDictionary *notifyHanlders;//字典以通知名为key，value是一个"以target为key，以block为value的字典“
 //@property (nullable, copy) void (^completionBlock)(void);
+@property (nonatomic, strong) NSTimer *heartBeatTimer;
+
 @end
 
 @implementation ACSocketService
@@ -626,5 +628,37 @@ static ACSocketService *socketService = nil;
         
     }];
 }
+
+
+#pragma mark - 心跳启动停止
+//- (void)enableHeartBeat
+//{
+//    if (!_heartBeatTimer) {
+//        _heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:HEARTBEAT_INTERVAL target:self selector:@selector(heartBeatOperation) userInfo:nil repeats:YES];
+//    }
+//}
+//- (void)disableHeartBeat
+//{
+//    if (_heartBeatTimer) {
+//        [_heartBeatTimer invalidate];
+//        _heartBeatTimer = nil;
+//    }
+//}
+//- (void)resetHeartBeat
+//{
+//    if (_heartBeatTimer) {
+//        [_heartBeatTimer invalidate];
+//        _heartBeatTimer = nil;
+//        _heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:HEARTBEAT_INTERVAL target:self selector:@selector(heartBeatOperation) userInfo:nil repeats:YES];
+//    }
+//}
+//- (void)heartBeatOperation
+//{
+//    if ([CameraHAM shared].isZ16) {
+//        [LGSendCommandHandler triggerHeartBeat];
+//    }
+//    
+//}
+
 
 @end

@@ -170,9 +170,9 @@ static CameraHAM *actionCamera = nil;
 - (void)cameraWIFiDetector
 {
     //暂时不打开探测功能
-    if (1) {
-        return;
-    }
+//    if (1) {
+//        return;
+//    }
     
     //NSLog(@"cameraWIFiDetector++");
     

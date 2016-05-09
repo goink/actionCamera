@@ -12,46 +12,78 @@
 #import "ACCommandService.h"
 #import <MobileVLCKit/MobileVLCKit.h>
 #import "Camera/CameraHAM.h"
+#import "Masonry.h"
 
 @interface ViewController () <VLCMediaPlayerDelegate, CameraHAMDelegate>
 @property (nonatomic, strong) ACSocketService *socketService;
 @property (nonatomic, strong) UIView *playView;
 @property (nonatomic, strong) VLCMediaListPlayer *mediaPlayer;
-
+@property (nonatomic, strong) UIButton *button;
+@property (nonatomic, strong) UIButton *buttonw;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor yellowColor];
     
     UIButton *button = [[UIButton alloc] init];
-    button.bounds = CGRectMake(0, 0, 200, 48);
-    button.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height*2/3-50);
     [button setTitle:@"Send Commands" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    [button mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(200, 48));
+        make.bottom.mas_equalTo(self.view.mas_bottom).with.offset(-20);
+        make.centerX.mas_equalTo(self.view);
+    }];
     
     
     UIButton *buttonw = [[UIButton alloc] init];
-    buttonw.bounds = CGRectMake(0, 0, 200, 48);
-    buttonw.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height-100);
     [buttonw setTitle:@"Push Stream" forState:UIControlStateNormal];
     [buttonw setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [buttonw setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     [buttonw addTarget:self action:@selector(hello) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:buttonw];
+    [buttonw mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(200, 48));
+        make.bottom.mas_equalTo(button.mas_top).with.offset(-20);
+        make.centerX.mas_equalTo(self.view);
+    }];
     
     UIView *playView = [UIView new];
-    playView.frame = CGRectMake(0, 50, self.view.frame.size.width, 250);
     playView.backgroundColor = [UIColor blueColor];
     _playView = playView;
     [self.view addSubview:playView];
+    [_playView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(self.view);
+        make.top.mas_equalTo(self.view).with.offset(40);
+        make.height.mas_equalTo(self.view.mas_width).multipliedBy(0.75);
+    }];
 
     [[CameraHAM shared] attachCameraPreViewTo:_playView];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraIsReady) name:NOTI_CAMERA_IS_READY object:nil];
+    
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self buttonClick];
+    
+}
+
+- (void)cameraIsReady
+{
+    [self hello];
 }
 
 - (void)buttonClick
@@ -109,4 +141,70 @@
     VLCMediaPlayer *player = (VLCMediaPlayer *)aNotification.object;
     NSLog(@"state:%@", VLCMediaPlayerStateToString(player.state));
 }
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    NSLog(@"willRotateToInterfaceOrientation: %ld", (long)toInterfaceOrientation);
+    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+        [_playView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.mas_equalTo(self.view);
+            make.width.mas_equalTo(_playView.mas_height).multipliedBy(4.0/3.0);
+            make.centerX.mas_equalTo(self.view);
+        }];
+    } else {
+        [_playView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(self.view);
+            make.height.mas_equalTo(_playView.mas_width).multipliedBy(3.0/4.0);
+            make.top.mas_equalTo(self.view).with.offset(40);
+        }];
+    }
+    
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    NSLog(@"didRotateFromInterfaceOrientation: %ld", (long)fromInterfaceOrientation);
+    if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
+        [_playView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.mas_equalTo(self.view);
+            make.width.mas_equalTo(self.view.mas_height).multipliedBy(4.0/3.0);
+            make.centerX.mas_equalTo(self.view);
+        }];
+    } else {
+        [_playView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(self.view);
+            make.top.mas_equalTo(self.view).with.offset(40);
+            make.height.mas_equalTo(self.view.mas_width).multipliedBy(0.75);
+        }];
+    }
+    
+}
+
+
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    NSLog(@"willAnimateRotationToInterfaceOrientation: %ld", (long)toInterfaceOrientation);
+}
+
+- (void)willAnimateFirstHalfOfRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    NSLog(@"willAnimateFirstHalfOfRotationToInterfaceOrientation: %ld", (long)toInterfaceOrientation);
+}
+
+- (void)didAnimateFirstHalfOfRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    NSLog(@"didAnimateFirstHalfOfRotationToInterfaceOrientation: %ld", (long)toInterfaceOrientation);
+}
+
 @end
