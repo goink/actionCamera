@@ -216,7 +216,7 @@ static CameraHAM *actionCamera = nil;
     
     if (!_mediaPlayer)
     {
-        _mediaPlayer = [[VLCMediaPlayer alloc] initWithOptions:@[@"--noaudio",@"--no-video-title-show",@"--quiet"]];//,@"-vvv"
+        _mediaPlayer = [[VLCMediaPlayer alloc] initWithOptions:@[@"--noaudio",@"--no-video-title-show",@"--quiet",@"-vvv"]];//
         _mediaPlayer.delegate = self;
         
         [_mediaPlayer setDeinterlaceFilter:@"blend"];
