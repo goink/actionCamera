@@ -14,12 +14,20 @@
 #import "Camera/CameraHAM.h"
 #import "Masonry.h"
 
+#import "RTSPPlayer.h"
+
 @interface ViewController () <VLCMediaPlayerDelegate, CameraHAMDelegate>
 @property (nonatomic, strong) ACSocketService *socketService;
 @property (nonatomic, strong) UIView *playView;
 @property (nonatomic, strong) VLCMediaListPlayer *mediaPlayer;
 @property (nonatomic, strong) UIButton *button;
 @property (nonatomic, strong) UIButton *buttonw;
+@property (nonatomic, strong) NSTimer *nextFrameTimer;
+
+@property (nonatomic, strong) UIImageView *imageView;
+
+@property (nonatomic, strong) RTSPPlayer *video;
+@property (nonatomic, assign) float lastFrameTime;
 @end
 
 @implementation ViewController
@@ -65,7 +73,16 @@
 
     [[CameraHAM shared] attachCameraPreViewTo:_playView];
     
+    
+    UIImageView *imageView = [UIImageView new];
+    [self.view addSubview:imageView];
+    _imageView = imageView;
+    [imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(_playView);
+    }];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraIsReady) name:NOTI_CAMERA_IS_READY object:nil];
+    
     
 }
 
@@ -83,7 +100,48 @@
 
 - (void)cameraIsReady
 {
-    [self hello];
+    
+    _video = [[RTSPPlayer alloc] initWithVideo:@"rtsp://192.168.42.1/live" usesTcp:NO];
+    _video.outputWidth = 426;
+    _video.outputHeight = 320;
+    
+    NSLog(@"video duration: %f",_video.duration);
+    NSLog(@"video size: %d x %d", _video.sourceWidth, _video.sourceHeight);
+    
+//    [self hello];
+    _lastFrameTime = -1;
+    
+    // seek to 0.0 seconds
+    [_video seekTime:0.0];
+    
+    [_nextFrameTimer invalidate];
+    self.nextFrameTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/30
+                                                           target:self
+                                                         selector:@selector(displayNextFrame:)
+                                                         userInfo:nil
+                                                          repeats:YES];
+}
+
+#define LERP(A,B,C) ((A)*(1.0-C)+(B)*C)
+
+-(void)displayNextFrame:(NSTimer *)timer
+{
+    NSTimeInterval startTime = [NSDate timeIntervalSinceReferenceDate];
+    if (![_video stepFrame]) {
+        [timer invalidate];
+//        [playButton setEnabled:YES];
+        [_video closeAudio];
+        return;
+    }
+    _imageView.image = _video.currentImage;
+    float frameTime = 1.0/([NSDate timeIntervalSinceReferenceDate]-startTime);
+    if (_lastFrameTime<0) {
+        _lastFrameTime = frameTime;
+    } else {
+        _lastFrameTime = LERP(frameTime, _lastFrameTime, 0.8);
+    }
+//    [label setText:[NSString stringWithFormat:@"%.0f",lastFrameTime]];
+    NSLog(@"_lastFrameTime:%@", [NSString stringWithFormat:@"%.0f",_lastFrameTime]);
 }
 
 - (void)buttonClick
@@ -99,7 +157,7 @@
         ACSettingOptions *options = [CameraHAM shared].settingOptions;
         NSLog(@"options:%@", options);
         [[CameraHAM shared] resetVideoFlow];
-        [[CameraHAM shared] preViewPlay];
+//        [[CameraHAM shared] preViewPlay];
     }
 }
 
