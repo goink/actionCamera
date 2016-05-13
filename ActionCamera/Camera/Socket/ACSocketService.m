@@ -174,8 +174,9 @@ static ACSocketService *socketService = nil;
                 [self resetHeartBeat];
             });
         
-            NSLog(@"[sendMsg]-:%@", [_cmdObject.socketObject modelToJSONString]);
-
+            if (_cmdObject.socketObject.msg_id != MSGID_HEARTBEAT) {
+                NSLog(@"[sendMsg]-:%@", [_cmdObject.socketObject modelToJSONString]);
+            }
         }
         else
         {
@@ -258,7 +259,10 @@ static ACSocketService *socketService = nil;
     
     NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
-    DDLogError(@"[recvMsg]:%@", str);
+    if (![str containsString:@"16777244"]) {
+        DDLogError(@"[recvMsg]:%@", str);
+    }
+    
         
     NSMutableArray *mutArr;
     if([[str substringFromIndex:str.length-1] isEqualToString:@"}"] )
