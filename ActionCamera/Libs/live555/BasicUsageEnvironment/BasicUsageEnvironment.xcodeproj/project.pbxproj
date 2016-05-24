@@ -1,0 +1,156 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		B54464171CF46EC600FB1443 /* BasicHashTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BasicHashTable.cpp; sourceTree = "<group>"; };
+		B54464181CF46EC600FB1443 /* BasicTaskScheduler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BasicTaskScheduler.cpp; sourceTree = "<group>"; };
+		B54464191CF46EC600FB1443 /* BasicTaskScheduler0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BasicTaskScheduler0.cpp; sourceTree = "<group>"; };
+		B544641A1CF46EC600FB1443 /* BasicUsageEnvironment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BasicUsageEnvironment.cpp; sourceTree = "<group>"; };
+		B544641B1CF46EC600FB1443 /* BasicUsageEnvironment0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BasicUsageEnvironment0.cpp; sourceTree = "<group>"; };
+		B544641C1CF46EC600FB1443 /* COPYING */ = {isa = PBXFileReference; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		B544641D1CF46EC600FB1443 /* DelayQueue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DelayQueue.cpp; sourceTree = "<group>"; };
+		B544641E1CF46EC600FB1443 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		B544641F1CF46EC600FB1443 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		B54464201CF46EC600FB1443 /* Makefile.head */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.head; sourceTree = "<group>"; };
+		B54464211CF46EC600FB1443 /* Makefile.tail */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.tail; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		B54464111CF46EC600FB1443 = {
+			isa = PBXGroup;
+			children = (
+				B54464171CF46EC600FB1443 /* BasicHashTable.cpp */,
+				B54464181CF46EC600FB1443 /* BasicTaskScheduler.cpp */,
+				B54464191CF46EC600FB1443 /* BasicTaskScheduler0.cpp */,
+				B544641A1CF46EC600FB1443 /* BasicUsageEnvironment.cpp */,
+				B544641B1CF46EC600FB1443 /* BasicUsageEnvironment0.cpp */,
+				B544641C1CF46EC600FB1443 /* COPYING */,
+				B544641D1CF46EC600FB1443 /* DelayQueue.cpp */,
+				B544641E1CF46EC600FB1443 /* include */,
+				B544641F1CF46EC600FB1443 /* Makefile */,
+				B54464201CF46EC600FB1443 /* Makefile.head */,
+				B54464211CF46EC600FB1443 /* Makefile.tail */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		B54464161CF46EC600FB1443 /* BasicUsageEnvironment */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = B54464221CF46EC600FB1443 /* Build configuration list for PBXLegacyTarget "BasicUsageEnvironment" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = /Users/neo/github/actionCamera/ActionCamera/Libs/live555/BasicUsageEnvironment;
+			dependencies = (
+			);
+			name = BasicUsageEnvironment;
+			passBuildSettingsInEnvironment = 1;
+			productName = BasicUsageEnvironment;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		B54464121CF46EC600FB1443 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = B54464151CF46EC600FB1443 /* Build configuration list for PBXProject "BasicUsageEnvironment" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B54464111CF46EC600FB1443;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B54464161CF46EC600FB1443 /* BasicUsageEnvironment */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		B54464131CF46EC600FB1443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		B54464141CF46EC600FB1443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		B54464231CF46EC600FB1443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = BasicUsageEnvironment;
+			};
+			name = Debug;
+		};
+		B54464241CF46EC600FB1443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = BasicUsageEnvironment;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B54464151CF46EC600FB1443 /* Build configuration list for PBXProject "BasicUsageEnvironment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B54464131CF46EC600FB1443 /* Debug */,
+				B54464141CF46EC600FB1443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B54464221CF46EC600FB1443 /* Build configuration list for PBXLegacyTarget "BasicUsageEnvironment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B54464231CF46EC600FB1443 /* Debug */,
+				B54464241CF46EC600FB1443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B54464121CF46EC600FB1443 /* Project object */;
+}
