@@ -10,6 +10,7 @@
 #import "ACSocketService.h"
 #import "CameraHAM.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
+#import "ViewController2.h"
 
 
 //static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
@@ -27,6 +28,18 @@
         
         [DDLog addLogger:[DDTTYLogger sharedInstance]];
         [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *baseDir = paths.firstObject;
+        NSString *logsDirectory = [baseDir stringByAppendingPathComponent:@"Logs"];
+        DDLogFileManagerDefault *logFileManager = [[DDLogFileManagerDefault alloc] initWithLogsDirectory:logsDirectory];
+        DDFileLogger* fileLogger = [[DDFileLogger alloc] initWithLogFileManager:logFileManager];
+        fileLogger.maximumFileSize = (1024 * 1024 * 1); //  1 MB
+        fileLogger.rollingFrequency = (60 * 60 * 24);   // 24 Hours
+        fileLogger.logFileManager.maximumNumberOfLogFiles = 4;
+        
+        [DDLog addLogger:fileLogger];
+        
         [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor redColor] backgroundColor:[UIColor clearColor] forFlag:DDLogFlagError];
         [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor blueColor] backgroundColor:[UIColor clearColor] forFlag:DDLogFlagWarning];
         [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor whiteColor] backgroundColor:[UIColor clearColor] forFlag:DDLogFlagInfo];
@@ -41,6 +54,13 @@
     DDLogError(@"Error");
     
     _cameraHAM = [CameraHAM shared];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor blackColor];
+    [self.window makeKeyAndVisible];
+    
+    self.window.rootViewController = [ViewController2 new];
+    
     return YES;
 }
 

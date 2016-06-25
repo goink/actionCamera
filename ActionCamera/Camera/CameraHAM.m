@@ -214,23 +214,23 @@ static CameraHAM *actionCamera = nil;
 - (void)setupMediaPlayer
 {
     
-    if (!_mediaPlayer)
-    {
-        _mediaPlayer = [[VLCMediaPlayer alloc] initWithOptions:@[@"--noaudio",@"--no-video-title-show",@"--quiet",@"-vvv"]];//
-        _mediaPlayer.delegate = self;
-        
-        [_mediaPlayer setDeinterlaceFilter:@"blend"];
-        
-        _mediaPlayer.media = [VLCMedia mediaWithURL:[NSURL URLWithString:CAMERA_IP_RTSP]];
-        
-        NSMutableDictionary *mediaDictionary = [[NSMutableDictionary alloc] init];
-        //fix http://192.168.8.233:3000/issues/2977
-        //https://forum.videolan.org/viewtopic.php?t=118805
-        [mediaDictionary setObject:@"" forKey:@"extraintf"];
-        [mediaDictionary setObject:NetworkCachingValue forKey:kVLCSettingNetworkCaching];
-        [mediaDictionary setObject:@(0) forKey:@"clock-jitter"];
-        [_mediaPlayer.media addOptions:mediaDictionary];
-    }
+//    if (!_mediaPlayer)
+//    {
+//        _mediaPlayer = [[VLCMediaPlayer alloc] initWithOptions:@[@"--noaudio",@"--no-video-title-show",@"--quiet",@"-vvv"]];//
+//        _mediaPlayer.delegate = self;
+//        
+//        [_mediaPlayer setDeinterlaceFilter:@"blend"];
+//        
+//        _mediaPlayer.media = [VLCMedia mediaWithURL:[NSURL URLWithString:CAMERA_IP_RTSP]];
+//        
+//        NSMutableDictionary *mediaDictionary = [[NSMutableDictionary alloc] init];
+//        //fix http://192.168.8.233:3000/issues/2977
+//        //https://forum.videolan.org/viewtopic.php?t=118805
+//        [mediaDictionary setObject:@"" forKey:@"extraintf"];
+//        [mediaDictionary setObject:NetworkCachingValue forKey:kVLCSettingNetworkCaching];
+//        [mediaDictionary setObject:@(0) forKey:@"clock-jitter"];
+//        [_mediaPlayer.media addOptions:mediaDictionary];
+//    }
 
 }
 
